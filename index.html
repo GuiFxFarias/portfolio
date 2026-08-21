@@ -1,0 +1,874 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Guilherme Farias</title>
+<meta name="description" content="Currículo interativo de Guilherme Farias — desenvolvedor full stack e líder de soluções em nuvem e IA, em formato de datasheet técnico.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>⚙️</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@500;600;700;800;900&family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+
+<style>
+  /* ============ TOKENS ============ */
+  :root {
+    --bg: #EEF0E9;
+    --surface: #FFFFFF;
+    --surface-2: #E5E8DF;
+    --ink: #1B1F1B;
+    --ink-soft: #565F57;
+    --ink-faint: #8C948B;
+    --line: #CBD1C3;
+    --line-strong: #A9B0A0;
+    --accent: #B4622A;
+    --accent-ink: #FFF7EE;
+    --accent-2: #2B6E5E;
+    --accent-2-ink: #EAF7F2;
+    --radius-sm: 3px;
+    --radius-md: 7px;
+    --shadow: 0 1px 0 rgba(27,31,27,0.04);
+    --font-display: "Big Shoulders Display", "Arial Narrow", sans-serif;
+    --font-body: "IBM Plex Sans", "Segoe UI", sans-serif;
+    --font-mono: "IBM Plex Mono", "SFMono-Regular", Consolas, monospace;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #121614;
+      --surface: #191F1C;
+      --surface-2: #1F2622;
+      --ink: #ECEFE9;
+      --ink-soft: #A2AB9F;
+      --ink-faint: #6C756A;
+      --line: #2B332D;
+      --line-strong: #3C463E;
+      --accent: #E08A4D;
+      --accent-ink: #201202;
+      --accent-2: #57B79B;
+      --accent-2-ink: #06211A;
+      --shadow: 0 1px 0 rgba(0,0,0,0.3);
+    }
+  }
+
+  :root[data-theme="dark"] {
+    --bg: #121614;
+    --surface: #191F1C;
+    --surface-2: #1F2622;
+    --ink: #ECEFE9;
+    --ink-soft: #A2AB9F;
+    --ink-faint: #6C756A;
+    --line: #2B332D;
+    --line-strong: #3C463E;
+    --accent: #E08A4D;
+    --accent-ink: #201202;
+    --accent-2: #57B79B;
+    --accent-2-ink: #06211A;
+    --shadow: 0 1px 0 rgba(0,0,0,0.3);
+  }
+
+  /* ============ RESET-ish ============ */
+  * { box-sizing: border-box; }
+  html { scroll-padding-top: 5.5rem; }
+  @media (prefers-reduced-motion: no-preference) {
+    html { scroll-behavior: smooth; }
+  }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--ink);
+    font-family: var(--font-body);
+    font-size: 16px;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+  }
+  img, svg { max-width: 100%; display: block; }
+  a { color: inherit; }
+  h1, h2, h3, h4 { font-family: var(--font-display); margin: 0; text-wrap: balance; }
+  p { margin: 0; }
+  ul { margin: 0; padding: 0; list-style: none; }
+  :focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 2px; }
+
+  .wrap {
+    max-width: 74rem;
+    margin: 0 auto;
+    padding-inline: clamp(1.25rem, 4vw, 3rem);
+  }
+
+  /* ============ BACKGROUND GRID ============ */
+  .grid-field {
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+    background-image:
+      linear-gradient(var(--line) 1px, transparent 1px),
+      linear-gradient(90deg, var(--line) 1px, transparent 1px);
+    background-size: 42px 42px;
+    opacity: 0.35;
+    mask-image: radial-gradient(ellipse 90% 60% at 50% 0%, black 40%, transparent 85%);
+  }
+
+  /* ============ NAV ============ */
+  .nav {
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    background: color-mix(in srgb, var(--bg) 86%, transparent);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--line);
+  }
+  .nav-inner {
+    max-width: 74rem;
+    margin: 0 auto;
+    padding: 0.9rem clamp(1.25rem, 4vw, 3rem);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1.5rem;
+  }
+  .nav-mark {
+    font-family: var(--font-mono);
+    font-weight: 600;
+    font-size: 0.85rem;
+    letter-spacing: 0.02em;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    white-space: nowrap;
+  }
+  .nav-mark .dot { width: 7px; height: 7px; border-radius: 50%; background: var(--accent-2); flex: none; }
+  .nav-links {
+    display: flex;
+    gap: clamp(0.9rem, 2vw, 1.6rem);
+    overflow-x: auto;
+    scrollbar-width: none;
+    font-family: var(--font-mono);
+    font-size: 0.78rem;
+    letter-spacing: 0.03em;
+  }
+  .nav-links::-webkit-scrollbar { display: none; }
+  .nav-links a {
+    text-decoration: none;
+    color: var(--ink-faint);
+    white-space: nowrap;
+    padding: 0.3rem 0.1rem;
+    border-bottom: 2px solid transparent;
+    transition: color 0.15s ease, border-color 0.15s ease;
+  }
+  .nav-links a:hover { color: var(--ink); }
+  .nav-links a.active { color: var(--accent); border-color: var(--accent); }
+
+  /* ============ SECTION SHELL ============ */
+  section { padding: clamp(3.5rem, 7vw, 6rem) 0; }
+  .kicker {
+    font-family: var(--font-mono);
+    font-size: 0.78rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--accent);
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    margin-bottom: 0.9rem;
+  }
+  .kicker::before {
+    content: "";
+    width: 1.4rem;
+    height: 1px;
+    background: var(--accent);
+  }
+  .section-title {
+    font-size: clamp(1.9rem, 3.6vw, 2.7rem);
+    font-weight: 700;
+    letter-spacing: 0.01em;
+    margin-bottom: 2.4rem;
+  }
+
+  .reveal { opacity: 0; transform: translateY(14px); }
+  .reveal.is-visible { opacity: 1; transform: translateY(0); }
+  @media (prefers-reduced-motion: no-preference) {
+    .reveal { transition: opacity 0.6s ease, transform 0.6s ease; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .reveal { opacity: 1; transform: none; }
+  }
+
+  /* ============ HERO ============ */
+  .hero {
+    position: relative;
+    padding-top: clamp(3.5rem, 9vw, 6.5rem);
+    padding-bottom: clamp(3rem, 6vw, 5rem);
+    overflow: hidden;
+  }
+  .hero-trace { position: absolute; top: 0; right: -2rem; width: 46%; height: 100%; opacity: 0.5; pointer-events: none; }
+  .hero-eyebrow {
+    font-family: var(--font-mono);
+    font-size: 0.85rem;
+    color: var(--accent-2);
+    letter-spacing: 0.04em;
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+  }
+  .hero-eyebrow .blink { width: 8px; height: 8px; border-radius: 50%; background: var(--accent-2); box-shadow: 0 0 0 4px color-mix(in srgb, var(--accent-2) 20%, transparent); }
+  .hero h1 {
+    font-size: clamp(3rem, 9vw, 6.4rem);
+    font-weight: 800;
+    line-height: 0.92;
+    letter-spacing: -0.01em;
+    max-width: 20ch;
+  }
+  .hero-role {
+    font-size: clamp(1.05rem, 2vw, 1.35rem);
+    color: var(--ink-soft);
+    margin-top: 1.1rem;
+    max-width: 46ch;
+    font-weight: 500;
+  }
+  .hero-role strong { color: var(--ink); font-weight: 600; }
+
+  .meta-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.6rem 0.9rem;
+    margin-top: 2rem;
+  }
+  .meta-chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.45rem;
+    font-family: var(--font-mono);
+    font-size: 0.8rem;
+    color: var(--ink-soft);
+    background: var(--surface);
+    border: 1px solid var(--line);
+    padding: 0.45rem 0.75rem;
+    border-radius: var(--radius-sm);
+    text-decoration: none;
+  }
+  .meta-chip svg { width: 14px; height: 14px; flex: none; stroke: var(--accent); }
+  .meta-chip:hover { border-color: var(--line-strong); color: var(--ink); }
+
+  .hero-actions { display: flex; gap: 0.8rem; margin-top: 2.2rem; flex-wrap: wrap; }
+  .btn {
+    font-family: var(--font-mono);
+    font-size: 0.82rem;
+    letter-spacing: 0.02em;
+    padding: 0.75rem 1.3rem;
+    border-radius: var(--radius-sm);
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    border: 1px solid transparent;
+    transition: transform 0.15s ease, background 0.15s ease, border-color 0.15s ease;
+  }
+  .btn-primary { background: var(--accent); color: var(--accent-ink); font-weight: 600; }
+  .btn-primary:hover { transform: translateY(-1px); }
+  .btn-ghost { border-color: var(--line-strong); color: var(--ink); }
+  .btn-ghost:hover { border-color: var(--accent); color: var(--accent); }
+
+  /* stat strip */
+  .stat-strip {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    border: 1px solid var(--line);
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    margin-top: clamp(2.6rem, 5vw, 3.8rem);
+    background: var(--surface);
+  }
+  .stat {
+    padding: 1.3rem 1.2rem;
+    border-left: 1px solid var(--line);
+  }
+  .stat:first-child { border-left: none; }
+  .stat-value {
+    font-family: var(--font-display);
+    font-size: clamp(1.6rem, 3vw, 2.1rem);
+    font-weight: 700;
+    color: var(--accent);
+    font-variant-numeric: tabular-nums;
+    line-height: 1;
+  }
+  .stat-label {
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    color: var(--ink-faint);
+    letter-spacing: 0.02em;
+    margin-top: 0.5rem;
+  }
+
+  /* ============ SUMMARY / SOBRE ============ */
+  .sobre-grid {
+    display: grid;
+    grid-template-columns: 1.4fr 1fr;
+    gap: clamp(2rem, 5vw, 4rem);
+    align-items: start;
+  }
+  .sobre-grid p {
+    color: var(--ink-soft);
+    max-width: 62ch;
+    font-size: 1.02rem;
+  }
+  .sobre-grid p + p { margin-top: 1.1rem; }
+  .sobre-grid p strong { color: var(--ink); font-weight: 600; }
+
+  .info-card {
+    border: 1px solid var(--line);
+    border-radius: var(--radius-md);
+    background: var(--surface);
+    padding: 1.5rem;
+  }
+  .info-card h3 {
+    font-family: var(--font-mono);
+    font-size: 0.78rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--ink-faint);
+    font-weight: 500;
+    margin-bottom: 1rem;
+  }
+  .info-card dl { display: flex; flex-direction: column; gap: 0.8rem; }
+  .info-card .row { display: flex; justify-content: space-between; gap: 1rem; font-size: 0.88rem; }
+  .info-card dt { color: var(--ink-faint); }
+  .info-card dd { margin: 0; font-weight: 600; text-align: right; }
+
+  /* ============ STACK / SKILLS ============ */
+  .spec-sheet {
+    border: 1px solid var(--line);
+    border-radius: var(--radius-md);
+    background: var(--surface);
+    overflow: hidden;
+  }
+  .spec-row {
+    display: grid;
+    grid-template-columns: 12rem 1fr;
+    border-top: 1px solid var(--line);
+  }
+  .spec-row:first-child { border-top: none; }
+  .spec-key {
+    font-family: var(--font-mono);
+    font-size: 0.78rem;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--ink-faint);
+    padding: 1.15rem 1.3rem;
+    background: var(--surface-2);
+    border-right: 1px solid var(--line);
+  }
+  .spec-val {
+    padding: 1.1rem 1.3rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    align-items: center;
+  }
+  .pill {
+    font-size: 0.85rem;
+    padding: 0.32rem 0.75rem;
+    border-radius: 999px;
+    border: 1px solid var(--line-strong);
+    background: var(--bg);
+    color: var(--ink);
+    font-weight: 500;
+  }
+  .pill.accent { border-color: color-mix(in srgb, var(--accent-2) 55%, var(--line-strong)); color: var(--accent-2); }
+
+  /* ============ EXPERIENCE TIMELINE ============ */
+  .timeline { display: flex; flex-direction: column; gap: 2.75rem; }
+  .t-item { display: grid; grid-template-columns: 1.5rem 1fr; gap: 1.4rem; position: relative; }
+  .t-rail { position: relative; display: flex; justify-content: center; }
+  .t-dot {
+    width: 0.8rem; height: 0.8rem; border-radius: 50%;
+    background: var(--surface); border: 2px solid var(--accent);
+    margin-top: 0.35rem; z-index: 1;
+  }
+  .t-item.current .t-dot { background: var(--accent); box-shadow: 0 0 0 4px color-mix(in srgb, var(--accent) 22%, transparent); }
+  .t-item:not(:last-child) .t-rail::after {
+    content: "";
+    position: absolute;
+    top: 0.6rem;
+    bottom: -2.75rem;
+    left: 50%;
+    width: 1px;
+    background: var(--line);
+    transform: translateX(-50%);
+  }
+  .t-head {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 0.5rem 1.2rem;
+  }
+  .t-role { font-size: 1.2rem; font-weight: 700; font-family: var(--font-body); }
+  .t-company { color: var(--accent-2); font-weight: 600; }
+  .t-dates {
+    font-family: var(--font-mono);
+    font-size: 0.76rem;
+    color: var(--ink-faint);
+    background: var(--surface-2);
+    border: 1px solid var(--line);
+    padding: 0.25rem 0.6rem;
+    border-radius: var(--radius-sm);
+    white-space: nowrap;
+  }
+  .t-desc { color: var(--ink-soft); font-size: 0.92rem; margin-top: 0.4rem; max-width: 60ch; }
+  .t-item ul { margin-top: 0.9rem; display: flex; flex-direction: column; gap: 0.5rem; }
+  .t-item li {
+    font-size: 0.92rem;
+    color: var(--ink-soft);
+    padding-left: 1.1rem;
+    position: relative;
+  }
+  .t-item li::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0.55em;
+    width: 5px; height: 5px;
+    background: var(--line-strong);
+  }
+
+  /* ============ PROJECTS ============ */
+  .proj-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 1.25rem;
+  }
+  .proj-card {
+    border: 1px solid var(--line);
+    border-radius: var(--radius-md);
+    background: var(--surface);
+    padding: 1.6rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    transition: border-color 0.15s ease, transform 0.15s ease;
+  }
+  .proj-card:hover { border-color: var(--accent); transform: translateY(-3px); }
+  .proj-tag {
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: var(--accent);
+  }
+  .proj-card h3 { font-size: 1.25rem; font-weight: 700; }
+  .proj-card p { color: var(--ink-soft); font-size: 0.9rem; flex: 1; }
+  .proj-metrics { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: auto; }
+  .metric {
+    font-family: var(--font-mono);
+    font-size: 0.74rem;
+    color: var(--ink);
+    background: var(--surface-2);
+    border: 1px solid var(--line);
+    padding: 0.28rem 0.55rem;
+    border-radius: var(--radius-sm);
+  }
+
+  /* ============ EDUCATION ============ */
+  .edu-list { display: flex; flex-direction: column; }
+  .edu-row {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 1rem;
+    padding: 1.1rem 0;
+    border-top: 1px solid var(--line);
+    align-items: baseline;
+  }
+  .edu-row:first-child { border-top: none; }
+  .edu-title { font-weight: 600; font-size: 1rem; }
+  .edu-org { color: var(--ink-soft); font-size: 0.88rem; margin-top: 0.15rem; }
+  .edu-period {
+    font-family: var(--font-mono);
+    font-size: 0.78rem;
+    color: var(--ink-faint);
+    white-space: nowrap;
+    text-align: right;
+  }
+
+  /* ============ CONTACT / FOOTER ============ */
+  .contact-panel {
+    border: 1px solid var(--line);
+    border-radius: var(--radius-md);
+    background: var(--surface);
+    padding: clamp(2rem, 5vw, 3rem);
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    gap: 2rem;
+  }
+  .contact-panel h2 { font-size: clamp(1.7rem, 3.4vw, 2.3rem); max-width: 18ch; }
+  .contact-panel .sub { color: var(--ink-soft); margin-top: 0.6rem; max-width: 40ch; font-size: 0.95rem; }
+  .contact-actions { display: flex; flex-direction: column; gap: 0.7rem; }
+
+  footer {
+    padding: 2.2rem 0 3rem;
+    font-family: var(--font-mono);
+    font-size: 0.76rem;
+    color: var(--ink-faint);
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+
+  /* ============ RESPONSIVE ============ */
+  @media (max-width: 760px) {
+    .sobre-grid { grid-template-columns: 1fr; }
+    .stat-strip { grid-template-columns: repeat(2, 1fr); }
+    .stat:nth-child(3) { border-left: none; }
+    .stat:nth-child(3), .stat:nth-child(4) { border-top: 1px solid var(--line); }
+    .spec-row { grid-template-columns: 1fr; }
+    .spec-key { border-right: none; border-bottom: 1px solid var(--line); }
+    .hero-trace { display: none; }
+    .contact-panel { flex-direction: column; align-items: flex-start; }
+  }
+</style>
+
+</head>
+<body>
+
+<div class="grid-field" aria-hidden="true"></div>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <span class="nav-mark"><span class="dot"></span>GUILHERME FARIAS</span>
+    <div class="nav-links" id="nav-links">
+      <a href="#inicio">início</a>
+      <a href="#sobre">sobre</a>
+      <a href="#stack">stack</a>
+      <a href="#experiencia">experiência</a>
+      <a href="#projetos">projetos</a>
+      <a href="#educacao">educação</a>
+      <a href="#contato">contato</a>
+    </div>
+  </div>
+</nav>
+
+<main class="wrap">
+
+  <section id="inicio" class="hero">
+    <svg class="hero-trace" viewBox="0 0 400 500" aria-hidden="true">
+      <g fill="none" stroke="var(--accent-2)" stroke-width="1.4">
+        <path d="M400 40 H260 V120 H340 V220 H220" />
+        <path d="M400 260 H300 V340 H380" />
+        <path d="M400 400 H240 V460 H180" />
+      </g>
+      <g fill="var(--accent-2)">
+        <circle cx="260" cy="40" r="4" />
+        <circle cx="220" cy="220" r="4" />
+        <circle cx="300" cy="260" r="4" />
+        <circle cx="380" cy="340" r="4" />
+        <circle cx="240" cy="400" r="4" />
+        <circle cx="180" cy="460" r="4" />
+      </g>
+    </svg>
+
+    <div class="hero-eyebrow"><span class="blink"></span>DISPONÍVEL PARA NOVOS PROJETOS · SERTÃOZINHO, SP</div>
+    <h1>Guilherme<br>Farias</h1>
+    <p class="hero-role">Desenvolvedor <strong>Full Stack</strong> com 4+ anos construindo produtos web e sistemas de backend em Node.js — hoje também à frente de soluções e novos negócios em nuvem e <strong>IA aplicada</strong>.</p>
+
+    <div class="meta-row">
+      <a class="meta-chip" href="https://www.linkedin.com/in/guilhermefarias21031" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><rect x="3" y="3" width="18" height="18" rx="2"/><line x1="8" y1="11" x2="8" y2="16"/><line x1="8" y1="7.5" x2="8" y2="7.5"/><line x1="12" y1="16" x2="12" y2="11"/><path d="M12 13c0-1.2 1-2 2-2s2 .8 2 2v3"/></svg>
+        /in/guilhermefarias21031
+      </a>
+      <a class="meta-chip" href="mailto:guilhermefarias210303@gmail.com">
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg>
+        guilhermefarias210303@gmail.com
+      </a>
+      <a class="meta-chip" href="tel:+5516988447335">
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h4l2 5-2.5 1.5a12 12 0 0 0 6 6L15 14l5 2v4a2 2 0 0 1-2 2C9.7 22 2 14.3 2 6a2 2 0 0 1 2-2z"/></svg>
+        (16) 98844-7335
+      </a>
+      <span class="meta-chip" style="cursor:default;">
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0z"/><circle cx="12" cy="10" r="3"/></svg>
+        Sertãozinho, SP · Brasil
+      </span>
+    </div>
+
+    <div class="hero-actions">
+      <a class="btn btn-primary" href="#contato">falar com guilherme →</a>
+      <a class="btn btn-ghost" href="#experiencia">ver trajetória</a>
+    </div>
+
+    <div class="stat-strip reveal">
+      <div class="stat"><div class="stat-value">4+</div><div class="stat-label">ANOS EM DESENVOLVIMENTO</div></div>
+      <div class="stat"><div class="stat-value">1100+</div><div class="stat-label">TICKETS RESOLVIDOS · 7 MESES</div></div>
+      <div class="stat"><div class="stat-value">500+</div><div class="stat-label">ACADEMIAS NO ACADESYSTEM</div></div>
+      <div class="stat"><div class="stat-value">RAG</div><div class="stat-label">PIPELINES DE IA · EMBEDDINGS</div></div>
+    </div>
+  </section>
+
+  <section id="sobre">
+    <div class="kicker">01 — Sumário</div>
+    <h2 class="section-title reveal">De ponta a ponta: do desenho técnico à entrega.</h2>
+    <div class="sobre-grid reveal">
+      <div>
+        <p>Desenvolvedor <strong>Full Stack</strong> com mais de 4 anos de experiência construindo aplicações web escaláveis e sistemas de backend com <strong>Node.js</strong>. Forte atuação em integrações de sistemas, processamento de dados e entrega de soluções voltadas para necessidades reais de negócio.</p>
+        <p>Experiência em todo o ciclo de desenvolvimento — do desenho técnico até a entrega — com foco em performance, manutenibilidade e experiência do usuário. Atuação recente com soluções de <strong>IA</strong>, incluindo pipelines de embeddings e recuperação inteligente de dados (RAG).</p>
+      </div>
+      <div class="info-card">
+        <h3>Ficha rápida</h3>
+        <dl>
+          <div class="row"><dt>Cargo atual</dt><dd>Líder de Soluções &amp; Novos Negócios</dd></div>
+          <div class="row"><dt>Empresa</dt><dd>Statum Tecnologia</dd></div>
+          <div class="row"><dt>Base</dt><dd>Sertãozinho, SP</dd></div>
+          <div class="row"><dt>Idiomas</dt><dd>Português, Inglês</dd></div>
+          <div class="row"><dt>Formação</dt><dd>Eng. de Software (Estácio)</dd></div>
+        </dl>
+      </div>
+    </div>
+  </section>
+
+  <section id="stack">
+    <div class="kicker">02 — Stack técnico</div>
+    <h2 class="section-title reveal">Ferramentas de trabalho, em formato de datasheet.</h2>
+    <div class="spec-sheet reveal">
+      <div class="spec-row">
+        <div class="spec-key">Backend</div>
+        <div class="spec-val"><span class="pill">Node.js</span><span class="pill">APIs REST</span><span class="pill">Integrações de sistemas</span></div>
+      </div>
+      <div class="spec-row">
+        <div class="spec-key">Frontend</div>
+        <div class="spec-val"><span class="pill">Next.js</span><span class="pill">React</span><span class="pill">TypeScript</span></div>
+      </div>
+      <div class="spec-row">
+        <div class="spec-key">Banco de dados</div>
+        <div class="spec-val"><span class="pill">PostgreSQL</span><span class="pill">MySQL</span></div>
+      </div>
+      <div class="spec-row">
+        <div class="spec-key">IA &amp; dados</div>
+        <div class="spec-val"><span class="pill accent">Embeddings</span><span class="pill accent">RAG</span><span class="pill accent">Reranking</span><span class="pill accent">Busca vetorial</span></div>
+      </div>
+      <div class="spec-row">
+        <div class="spec-key">Ferramentas</div>
+        <div class="spec-val"><span class="pill">Git</span><span class="pill">Scrum / Kanban</span><span class="pill">Figma</span></div>
+      </div>
+      <div class="spec-row">
+        <div class="spec-key">Perfil</div>
+        <div class="spec-val"><span class="pill">Liderança de equipes</span><span class="pill">Proatividade</span><span class="pill">Trabalho em grupo</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="experiencia">
+    <div class="kicker">03 — Experiência</div>
+    <h2 class="section-title reveal">Do suporte técnico à liderança de soluções.</h2>
+
+    <div class="timeline">
+
+      <div class="t-item current reveal">
+        <div class="t-rail"><div class="t-dot"></div></div>
+        <div>
+          <div class="t-head">
+            <div><span class="t-role">Líder de Soluções e Novos Negócios</span> — <span class="t-company">Statum Tecnologia</span></div>
+            <span class="t-dates">SET 2025 — PRESENTE</span>
+          </div>
+          <p class="t-desc">Empresa de desenvolvimento de sistemas e infraestrutura em nuvem (Microsoft e Oracle), com forte atuação no polo industrial e sucroenergético do interior paulista.</p>
+          <ul>
+            <li>Responsável pelo ciclo comercial completo — prospecção, qualificação, diagnóstico técnico, proposta, negociação e fechamento — de forma autônoma, da geração do lead à assinatura.</li>
+            <li>Média de 5+ reuniões semanais com diretoria, TI e áreas de negócio de indústrias de médio e grande porte.</li>
+            <li>Mapeamento de mercado e construção de carteira em setores-alvo: sucroenergético, metalmecânico, agroindústria e distribuição.</li>
+            <li>Desenho de propostas técnico-comerciais e arquitetura de solução: migração para nuvem (OCI/Azure), IA corporativa, BI, ERP Senior e desenvolvimento sob medida.</li>
+            <li>Ponte entre cliente e engenharia, acompanhando o projeto do escopo à implantação, e apresentando provas de conceito construídas por ele mesmo.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="t-item reveal">
+        <div class="t-rail"><div class="t-dot"></div></div>
+        <div>
+          <div class="t-head">
+            <div><span class="t-role">Gerente de Projetos</span> — <span class="t-company">Statum Tecnologia</span></div>
+            <span class="t-dates">OUT 2024 — SET 2025</span>
+          </div>
+          <ul>
+            <li>Gestão de equipes em 7+ projetos simultâneos, com reuniões de alinhamento, testes e entrega.</li>
+            <li>Criação de sprints, backlog, histórias e tasks com foco em entrega constante de valor.</li>
+            <li>Estruturação de processos de entrega — documentação e reuniões de handoff de funcionalidades.</li>
+            <li>Análise de sistemas e desenho de interfaces no Figma para usuário final e clientes empresariais.</li>
+            <li>Controle de qualidade sobre os desenvolvimentos, atuando também como QA.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="t-item reveal">
+        <div class="t-rail"><div class="t-dot"></div></div>
+        <div>
+          <div class="t-head">
+            <div><span class="t-role">Desenvolvedor Front End</span> — <span class="t-company">Statum Tecnologia</span></div>
+            <span class="t-dates">OUT 2023 — OUT 2024</span>
+          </div>
+          <ul>
+            <li>Desenvolvimento de funcionalidades com Next.js e TypeScript, com foco em estruturação de código.</li>
+            <li>Padrão de desenvolvimento consistente, com atenção especial ao tratamento de erros.</li>
+            <li>Colaboração direta com times de backend em Node.js e integrações de API.</li>
+            <li>Melhorias de performance e experiência do usuário em conjunto com o time de produto.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="t-item reveal">
+        <div class="t-rail"><div class="t-dot"></div></div>
+        <div>
+          <div class="t-head">
+            <div><span class="t-role">Consultor Sênior de Tecnologia</span> — <span class="t-company">Senior Noroeste Paulista</span></div>
+            <span class="t-dates">OUT 2023 — JAN 2024</span>
+          </div>
+          <p class="t-desc">Maior revendedora do sistema ERP e HCM da Senior Matriz no Brasil, premiada seguidamente como destaque nacional.</p>
+          <ul>
+            <li>Desenvolvimento de regras de customização do sistema para clientes.</li>
+            <li>Levantamento de requisitos como analista de sistemas para novas demandas.</li>
+            <li>Condução de treinamentos para apoiar clientes na utilização da aplicação.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="t-item reveal">
+        <div class="t-rail"><div class="t-dot"></div></div>
+        <div>
+          <div class="t-head">
+            <div><span class="t-role">Analista de Suporte de Tecnologia</span> — <span class="t-company">Senior Noroeste Paulista</span></div>
+            <span class="t-dates">MAR 2023 — OUT 2024</span>
+          </div>
+          <ul>
+            <li>1.100+ tickets atendidos em 7 meses como primeiro analista do suporte.</li>
+            <li>Atendimento a grandes contas como Raízen, Tereos e Coplacana.</li>
+            <li>Líder no fechamento de tickets da área de tecnologia durante 6 meses consecutivos.</li>
+            <li>Responsável pelo dia de fechamento, apoiando o time e gerenciando os chamados em aberto.</li>
+          </ul>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <section id="projetos">
+    <div class="kicker">04 — Projetos</div>
+    <h2 class="section-title reveal">Sistemas que saíram do papel.</h2>
+    <div class="proj-grid reveal">
+
+      <article class="proj-card">
+        <span class="proj-tag">Gestão · SaaS</span>
+        <h3>AcadeSystem</h3>
+        <p>Sistema de gerenciamento de academias construído para resolver dores reais do cliente: formulários diversos, fluxos de UI/UX pensados para o dia a dia da operação.</p>
+        <div class="proj-metrics">
+          <span class="metric">+500 academias cadastradas</span>
+          <span class="metric">+100 usuários simultâneos</span>
+        </div>
+      </article>
+
+      <article class="proj-card">
+        <span class="proj-tag">Vendas · Automação de PDF</span>
+        <h3>G-Offer</h3>
+        <p>Plataforma de venda e padronização de PDFs, criada para agilizar negociações com o cliente — com controle de almoxarifado e status de ordens de serviço.</p>
+        <div class="proj-metrics">
+          <span class="metric">Controle de almoxarifado</span>
+          <span class="metric">Negociação ponta a ponta</span>
+        </div>
+      </article>
+
+      <article class="proj-card">
+        <span class="proj-tag">IA · RAG</span>
+        <h3>Contextly</h3>
+        <p>Análise de documentos com IA em abordagem RAG: chunking, armazenamento vetorial e busca por similaridade, com uma etapa de reranking para refinar o contexto enviado ao modelo.</p>
+        <div class="proj-metrics">
+          <span class="metric">Embeddings + reranking</span>
+          <span class="metric">Contexto dinâmico</span>
+        </div>
+      </article>
+
+    </div>
+  </section>
+
+  <section id="educacao">
+    <div class="kicker">05 — Educação &amp; certificações</div>
+    <h2 class="section-title reveal">Aprendizado contínuo, dentro e fora da sala de aula.</h2>
+    <div class="edu-list reveal">
+      <div class="edu-row">
+        <div><div class="edu-title">Engenheiro de Software</div><div class="edu-org">Estácio · Remoto</div></div>
+        <div class="edu-period">2024 — 2028*</div>
+      </div>
+      <div class="edu-row">
+        <div><div class="edu-title">Técnico em Automação Industrial</div><div class="edu-org">Instituto Federal de São Paulo · Sertãozinho, SP</div></div>
+        <div class="edu-period">2018 — 2021</div>
+      </div>
+      <div class="edu-row">
+        <div><div class="edu-title">Curso Professional</div><div class="edu-org">MBM University · Sertãozinho, SP</div></div>
+        <div class="edu-period">2023 — 2025</div>
+      </div>
+      <div class="edu-row">
+        <div><div class="edu-title">Certificações Oracle (Professional AI, Foundations e outras)</div><div class="edu-org">Oracle · Remoto</div></div>
+        <div class="edu-period">2024 — contínuo</div>
+      </div>
+      <div class="edu-row">
+        <div><div class="edu-title">Diversos cursos de desenvolvimento e certificações</div><div class="edu-org">Remoto</div></div>
+        <div class="edu-period">2022 — contínuo</div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contato">
+    <div class="contact-panel reveal">
+      <div>
+        <h2>Bora colocar a próxima solução de pé?</h2>
+        <p class="sub">Aberto a conversas sobre desenvolvimento full stack, arquitetura de soluções em nuvem ou projetos de IA aplicada.</p>
+      </div>
+      <div class="contact-actions">
+        <a class="btn btn-primary" href="mailto:guilhermefarias210303@gmail.com">guilhermefarias210303@gmail.com</a>
+        <a class="btn btn-ghost" href="https://www.linkedin.com/in/guilhermefarias21031" target="_blank" rel="noopener">linkedin.com/in/guilhermefarias21031</a>
+        <a class="btn btn-ghost" href="tel:+5516988447335">(16) 98844-7335</a>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <span>© 2026 GUILHERME FARIAS</span>
+    <span>SERTÃOZINHO, SP — BRASIL</span>
+  </footer>
+
+</main>
+
+<script>
+  (function () {
+    var links = Array.prototype.slice.call(document.querySelectorAll('#nav-links a'));
+    var sections = links.map(function (l) { return document.querySelector(l.getAttribute('href')); }).filter(Boolean);
+
+    if ('IntersectionObserver' in window) {
+      var navObserver = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          var id = '#' + entry.target.id;
+          var link = links.find(function (l) { return l.getAttribute('href') === id; });
+          if (!link) return;
+          if (entry.isIntersecting) {
+            links.forEach(function (l) { l.classList.remove('active'); });
+            link.classList.add('active');
+          }
+        });
+      }, { rootMargin: '-45% 0px -45% 0px', threshold: 0 });
+      sections.forEach(function (s) { navObserver.observe(s); });
+
+      var revealObserver = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('is-visible');
+            revealObserver.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.12 });
+      document.querySelectorAll('.reveal').forEach(function (el) { revealObserver.observe(el); });
+    } else {
+      document.querySelectorAll('.reveal').forEach(function (el) { el.classList.add('is-visible'); });
+    }
+  })();
+</script>
+
+</body>
+</html>
