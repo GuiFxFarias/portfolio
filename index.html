@@ -1,1074 +1,1782 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Guilherme Farias</title>
-<meta name="description" content="Interactive résumé of Guilherme Farias — full stack developer and Process &amp; Technology Manager at MTS, laid out as a technical datasheet.">
-<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>⚙️</text></svg>">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@500;600;700;800;900&family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Guilherme Farias</title>
+    <meta
+      name="description"
+      content="Interactive résumé of Guilherme Farias — full stack developer and Process &amp; Technology Manager at MTS, laid out as a technical datasheet."
+    />
+    <link
+      rel="icon"
+      href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>⚙️</text></svg>"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@500;600;700;800;900&family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
 
-<style>
-  /* ============ TOKENS ============ */
-  :root {
-    --bg: #EEF0E9;
-    --surface: #FFFFFF;
-    --surface-2: #E5E8DF;
-    --ink: #1B1F1B;
-    --ink-soft: #565F57;
-    --ink-faint: #8C948B;
-    --line: #CBD1C3;
-    --line-strong: #A9B0A0;
-    --accent: #B4622A;
-    --accent-ink: #FFF7EE;
-    --accent-2: #2B6E5E;
-    --accent-2-ink: #EAF7F2;
-    --radius-sm: 3px;
-    --radius-md: 7px;
-    --shadow: 0 1px 0 rgba(27,31,27,0.04);
-    --font-display: "Big Shoulders Display", "Arial Narrow", sans-serif;
-    --font-body: "IBM Plex Sans", "Segoe UI", sans-serif;
-    --font-mono: "IBM Plex Mono", "SFMono-Regular", Consolas, monospace;
-  }
+    <style>
+      /* ============ TOKENS ============ */
+      :root {
+        --bg: #eef0e9;
+        --surface: #ffffff;
+        --surface-2: #e5e8df;
+        --ink: #1b1f1b;
+        --ink-soft: #565f57;
+        --ink-faint: #8c948b;
+        --line: #cbd1c3;
+        --line-strong: #a9b0a0;
+        --accent: #b4622a;
+        --accent-ink: #fff7ee;
+        --accent-2: #2b6e5e;
+        --accent-2-ink: #eaf7f2;
+        --radius-sm: 3px;
+        --radius-md: 7px;
+        --shadow: 0 1px 0 rgba(27, 31, 27, 0.04);
+        --font-display: 'Big Shoulders Display', 'Arial Narrow', sans-serif;
+        --font-body: 'IBM Plex Sans', 'Segoe UI', sans-serif;
+        --font-mono: 'IBM Plex Mono', 'SFMono-Regular', Consolas, monospace;
+      }
 
-  @media (prefers-color-scheme: dark) {
-    :root:not([data-theme="light"]) {
-      --bg: #121614;
-      --surface: #191F1C;
-      --surface-2: #1F2622;
-      --ink: #ECEFE9;
-      --ink-soft: #A2AB9F;
-      --ink-faint: #6C756A;
-      --line: #2B332D;
-      --line-strong: #3C463E;
-      --accent: #E08A4D;
-      --accent-ink: #201202;
-      --accent-2: #57B79B;
-      --accent-2-ink: #06211A;
-      --shadow: 0 1px 0 rgba(0,0,0,0.3);
-    }
-  }
+      @media (prefers-color-scheme: dark) {
+        :root:not([data-theme='light']) {
+          --bg: #121614;
+          --surface: #191f1c;
+          --surface-2: #1f2622;
+          --ink: #ecefe9;
+          --ink-soft: #a2ab9f;
+          --ink-faint: #6c756a;
+          --line: #2b332d;
+          --line-strong: #3c463e;
+          --accent: #e08a4d;
+          --accent-ink: #201202;
+          --accent-2: #57b79b;
+          --accent-2-ink: #06211a;
+          --shadow: 0 1px 0 rgba(0, 0, 0, 0.3);
+        }
+      }
 
-  :root[data-theme="dark"] {
-    --bg: #121614;
-    --surface: #191F1C;
-    --surface-2: #1F2622;
-    --ink: #ECEFE9;
-    --ink-soft: #A2AB9F;
-    --ink-faint: #6C756A;
-    --line: #2B332D;
-    --line-strong: #3C463E;
-    --accent: #E08A4D;
-    --accent-ink: #201202;
-    --accent-2: #57B79B;
-    --accent-2-ink: #06211A;
-    --shadow: 0 1px 0 rgba(0,0,0,0.3);
-  }
+      :root[data-theme='dark'] {
+        --bg: #121614;
+        --surface: #191f1c;
+        --surface-2: #1f2622;
+        --ink: #ecefe9;
+        --ink-soft: #a2ab9f;
+        --ink-faint: #6c756a;
+        --line: #2b332d;
+        --line-strong: #3c463e;
+        --accent: #e08a4d;
+        --accent-ink: #201202;
+        --accent-2: #57b79b;
+        --accent-2-ink: #06211a;
+        --shadow: 0 1px 0 rgba(0, 0, 0, 0.3);
+      }
 
-  /* ============ RESET-ish ============ */
-  * { box-sizing: border-box; }
-  html { scroll-padding-top: 5.5rem; }
-  @media (prefers-reduced-motion: no-preference) {
-    html { scroll-behavior: smooth; }
-  }
-  body {
-    margin: 0;
-    background: var(--bg);
-    color: var(--ink);
-    font-family: var(--font-body);
-    font-size: 16px;
-    line-height: 1.6;
-    -webkit-font-smoothing: antialiased;
-    overflow-x: hidden;
-  }
-  img, svg { max-width: 100%; display: block; }
-  a { color: inherit; }
-  h1, h2, h3, h4 { font-family: var(--font-display); margin: 0; text-wrap: balance; }
-  p { margin: 0; }
-  ul { margin: 0; padding: 0; list-style: none; }
-  :focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 2px; }
+      /* ============ RESET-ish ============ */
+      * {
+        box-sizing: border-box;
+      }
+      html {
+        scroll-padding-top: 5.5rem;
+      }
+      @media (prefers-reduced-motion: no-preference) {
+        html {
+          scroll-behavior: smooth;
+        }
+      }
+      body {
+        margin: 0;
+        background: var(--bg);
+        color: var(--ink);
+        font-family: var(--font-body);
+        font-size: 16px;
+        line-height: 1.6;
+        -webkit-font-smoothing: antialiased;
+        overflow-x: hidden;
+      }
+      img,
+      svg {
+        max-width: 100%;
+        display: block;
+      }
+      a {
+        color: inherit;
+      }
+      h1,
+      h2,
+      h3,
+      h4 {
+        font-family: var(--font-display);
+        margin: 0;
+        text-wrap: balance;
+      }
+      p {
+        margin: 0;
+      }
+      ul {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+      }
+      :focus-visible {
+        outline: 2px solid var(--accent);
+        outline-offset: 3px;
+        border-radius: 2px;
+      }
 
-  .wrap {
-    max-width: 74rem;
-    margin: 0 auto;
-    padding-inline: clamp(1.25rem, 4vw, 3rem);
-  }
+      .wrap {
+        max-width: 74rem;
+        margin: 0 auto;
+        padding-inline: clamp(1.25rem, 4vw, 3rem);
+      }
 
-  /* ============ BACKGROUND GRID ============ */
-  .grid-field {
-    position: fixed;
-    inset: 0;
-    z-index: -1;
-    background-image:
-      linear-gradient(var(--line) 1px, transparent 1px),
-      linear-gradient(90deg, var(--line) 1px, transparent 1px);
-    background-size: 42px 42px;
-    opacity: 0.35;
-    mask-image: radial-gradient(ellipse 90% 60% at 50% 0%, black 40%, transparent 85%);
-  }
+      /* ============ BACKGROUND GRID ============ */
+      .grid-field {
+        position: fixed;
+        inset: 0;
+        z-index: -1;
+        background-image:
+          linear-gradient(var(--line) 1px, transparent 1px),
+          linear-gradient(90deg, var(--line) 1px, transparent 1px);
+        background-size: 42px 42px;
+        opacity: 0.35;
+        mask-image: radial-gradient(
+          ellipse 90% 60% at 50% 0%,
+          black 40%,
+          transparent 85%
+        );
+      }
 
-  /* ============ NAV ============ */
-  .nav {
-    position: sticky;
-    top: 0;
-    z-index: 50;
-    background: color-mix(in srgb, var(--bg) 86%, transparent);
-    backdrop-filter: blur(10px);
-    border-bottom: 1px solid var(--line);
-  }
-  .nav-inner {
-    max-width: 74rem;
-    margin: 0 auto;
-    padding: 0.9rem clamp(1.25rem, 4vw, 3rem);
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 1.5rem;
-  }
-  .nav-mark {
-    font-family: var(--font-mono);
-    font-weight: 600;
-    font-size: 0.85rem;
-    letter-spacing: 0.02em;
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-    white-space: nowrap;
-  }
-  .nav-mark .dot { width: 7px; height: 7px; border-radius: 50%; background: var(--accent-2); flex: none; }
-  .nav-links {
-    display: flex;
-    gap: clamp(0.9rem, 2vw, 1.6rem);
-    overflow-x: auto;
-    scrollbar-width: none;
-    font-family: var(--font-mono);
-    font-size: 0.78rem;
-    letter-spacing: 0.03em;
-  }
-  .nav-links::-webkit-scrollbar { display: none; }
-  .nav-links a {
-    text-decoration: none;
-    color: var(--ink-faint);
-    white-space: nowrap;
-    padding: 0.3rem 0.1rem;
-    border-bottom: 2px solid transparent;
-    transition: color 0.15s ease, border-color 0.15s ease;
-  }
-  .nav-links a:hover { color: var(--ink); }
-  .nav-links a.active { color: var(--accent); border-color: var(--accent); }
+      /* ============ NAV ============ */
+      .nav {
+        position: sticky;
+        top: 0;
+        z-index: 50;
+        background: color-mix(in srgb, var(--bg) 86%, transparent);
+        backdrop-filter: blur(10px);
+        border-bottom: 1px solid var(--line);
+      }
+      .nav-inner {
+        max-width: 74rem;
+        margin: 0 auto;
+        padding: 0.9rem clamp(1.25rem, 4vw, 3rem);
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 1.5rem;
+      }
+      .nav-mark {
+        font-family: var(--font-mono);
+        font-weight: 600;
+        font-size: 0.85rem;
+        letter-spacing: 0.02em;
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        white-space: nowrap;
+      }
+      .nav-mark .dot {
+        width: 7px;
+        height: 7px;
+        border-radius: 50%;
+        background: var(--accent-2);
+        flex: none;
+      }
+      .nav-links {
+        display: flex;
+        gap: clamp(0.9rem, 2vw, 1.6rem);
+        overflow-x: auto;
+        scrollbar-width: none;
+        font-family: var(--font-mono);
+        font-size: 0.78rem;
+        letter-spacing: 0.03em;
+      }
+      .nav-links::-webkit-scrollbar {
+        display: none;
+      }
+      .nav-links a {
+        text-decoration: none;
+        color: var(--ink-faint);
+        white-space: nowrap;
+        padding: 0.3rem 0.1rem;
+        border-bottom: 2px solid transparent;
+        transition:
+          color 0.15s ease,
+          border-color 0.15s ease;
+      }
+      .nav-links a:hover {
+        color: var(--ink);
+      }
+      .nav-links a.active {
+        color: var(--accent);
+        border-color: var(--accent);
+      }
 
-  /* ============ SECTION SHELL ============ */
-  section { padding: clamp(3.5rem, 7vw, 6rem) 0; }
-  .kicker {
-    font-family: var(--font-mono);
-    font-size: 0.78rem;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    color: var(--accent);
-    display: flex;
-    align-items: center;
-    gap: 0.6rem;
-    margin-bottom: 0.9rem;
-  }
-  .kicker::before {
-    content: "";
-    width: 1.4rem;
-    height: 1px;
-    background: var(--accent);
-  }
-  .section-title {
-    font-size: clamp(1.9rem, 3.6vw, 2.7rem);
-    font-weight: 700;
-    letter-spacing: 0.01em;
-    margin-bottom: 2.4rem;
-  }
+      /* ============ SECTION SHELL ============ */
+      section {
+        padding: clamp(3.5rem, 7vw, 6rem) 0;
+      }
+      .kicker {
+        font-family: var(--font-mono);
+        font-size: 0.78rem;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        color: var(--accent);
+        display: flex;
+        align-items: center;
+        gap: 0.6rem;
+        margin-bottom: 0.9rem;
+      }
+      .kicker::before {
+        content: '';
+        width: 1.4rem;
+        height: 1px;
+        background: var(--accent);
+      }
+      .section-title {
+        font-size: clamp(1.9rem, 3.6vw, 2.7rem);
+        font-weight: 700;
+        letter-spacing: 0.01em;
+        margin-bottom: 2.4rem;
+      }
 
-  .reveal { opacity: 0; transform: translateY(14px); }
-  .reveal.is-visible { opacity: 1; transform: translateY(0); }
-  @media (prefers-reduced-motion: no-preference) {
-    .reveal { transition: opacity 0.6s ease, transform 0.6s ease; }
-  }
-  @media (prefers-reduced-motion: reduce) {
-    .reveal { opacity: 1; transform: none; }
-  }
+      .reveal {
+        opacity: 0;
+        transform: translateY(14px);
+      }
+      .reveal.is-visible {
+        opacity: 1;
+        transform: translateY(0);
+      }
+      @media (prefers-reduced-motion: no-preference) {
+        .reveal {
+          transition:
+            opacity 0.6s ease,
+            transform 0.6s ease;
+        }
+      }
+      @media (prefers-reduced-motion: reduce) {
+        .reveal {
+          opacity: 1;
+          transform: none;
+        }
+      }
 
-  /* ============ HERO ============ */
-  .hero {
-    position: relative;
-    padding-top: clamp(3.5rem, 9vw, 6.5rem);
-    padding-bottom: clamp(3rem, 6vw, 5rem);
-    overflow: hidden;
-  }
-  .hero-trace { position: absolute; top: 0; right: -2rem; width: 46%; height: 100%; opacity: 0.5; pointer-events: none; }
-  .hero-eyebrow {
-    font-family: var(--font-mono);
-    font-size: 0.85rem;
-    color: var(--accent-2);
-    letter-spacing: 0.04em;
-    margin-bottom: 1rem;
-    display: flex;
-    align-items: center;
-    gap: 0.6rem;
-  }
-  .hero-eyebrow .blink { width: 8px; height: 8px; border-radius: 50%; background: var(--accent-2); box-shadow: 0 0 0 4px color-mix(in srgb, var(--accent-2) 20%, transparent); }
-  .hero h1 {
-    font-size: clamp(3rem, 9vw, 6.4rem);
-    font-weight: 800;
-    line-height: 0.92;
-    letter-spacing: -0.01em;
-    max-width: 20ch;
-  }
-  .hero-role {
-    font-size: clamp(1.05rem, 2vw, 1.35rem);
-    color: var(--ink-soft);
-    margin-top: 1.1rem;
-    max-width: 46ch;
-    font-weight: 500;
-  }
-  .hero-role strong { color: var(--ink); font-weight: 600; }
+      /* ============ HERO ============ */
+      .hero {
+        position: relative;
+        padding-top: clamp(3.5rem, 9vw, 6.5rem);
+        padding-bottom: clamp(3rem, 6vw, 5rem);
+        overflow: hidden;
+      }
+      .hero-trace {
+        position: absolute;
+        top: 0;
+        right: -2rem;
+        width: 46%;
+        height: 100%;
+        opacity: 0.5;
+        pointer-events: none;
+      }
+      .hero-eyebrow {
+        font-family: var(--font-mono);
+        font-size: 0.85rem;
+        color: var(--accent-2);
+        letter-spacing: 0.04em;
+        margin-bottom: 1rem;
+        display: flex;
+        align-items: center;
+        gap: 0.6rem;
+      }
+      .hero-eyebrow .blink {
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        background: var(--accent-2);
+        box-shadow: 0 0 0 4px
+          color-mix(in srgb, var(--accent-2) 20%, transparent);
+      }
+      .hero h1 {
+        font-size: clamp(3rem, 9vw, 6.4rem);
+        font-weight: 800;
+        line-height: 0.92;
+        letter-spacing: -0.01em;
+        max-width: 20ch;
+      }
+      .hero-role {
+        font-size: clamp(1.05rem, 2vw, 1.35rem);
+        color: var(--ink-soft);
+        margin-top: 1.1rem;
+        max-width: 46ch;
+        font-weight: 500;
+      }
+      .hero-role strong {
+        color: var(--ink);
+        font-weight: 600;
+      }
 
-  .meta-row {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.6rem 0.9rem;
-    margin-top: 2rem;
-  }
-  .meta-chip {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.45rem;
-    font-family: var(--font-mono);
-    font-size: 0.8rem;
-    color: var(--ink-soft);
-    background: var(--surface);
-    border: 1px solid var(--line);
-    padding: 0.45rem 0.75rem;
-    border-radius: var(--radius-sm);
-    text-decoration: none;
-  }
-  .meta-chip svg { width: 14px; height: 14px; flex: none; stroke: var(--accent); }
-  .meta-chip:hover { border-color: var(--line-strong); color: var(--ink); }
+      .meta-row {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.6rem 0.9rem;
+        margin-top: 2rem;
+      }
+      .meta-chip {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.45rem;
+        font-family: var(--font-mono);
+        font-size: 0.8rem;
+        color: var(--ink-soft);
+        background: var(--surface);
+        border: 1px solid var(--line);
+        padding: 0.45rem 0.75rem;
+        border-radius: var(--radius-sm);
+        text-decoration: none;
+      }
+      .meta-chip svg {
+        width: 14px;
+        height: 14px;
+        flex: none;
+        stroke: var(--accent);
+      }
+      .meta-chip:hover {
+        border-color: var(--line-strong);
+        color: var(--ink);
+      }
 
-  .hero-actions { display: flex; gap: 0.8rem; margin-top: 2.2rem; flex-wrap: wrap; }
-  .btn {
-    font-family: var(--font-mono);
-    font-size: 0.82rem;
-    letter-spacing: 0.02em;
-    padding: 0.75rem 1.3rem;
-    border-radius: var(--radius-sm);
-    text-decoration: none;
-    display: inline-flex;
-    align-items: center;
-    gap: 0.5rem;
-    border: 1px solid transparent;
-    transition: transform 0.15s ease, background 0.15s ease, border-color 0.15s ease;
-  }
-  .btn-primary { background: var(--accent); color: var(--accent-ink); font-weight: 600; }
-  .btn-primary:hover { transform: translateY(-1px); }
-  .btn-ghost { border-color: var(--line-strong); color: var(--ink); }
-  .btn-ghost:hover { border-color: var(--accent); color: var(--accent); }
+      .hero-actions {
+        display: flex;
+        gap: 0.8rem;
+        margin-top: 2.2rem;
+        flex-wrap: wrap;
+      }
+      .btn {
+        font-family: var(--font-mono);
+        font-size: 0.82rem;
+        letter-spacing: 0.02em;
+        padding: 0.75rem 1.3rem;
+        border-radius: var(--radius-sm);
+        text-decoration: none;
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        border: 1px solid transparent;
+        transition:
+          transform 0.15s ease,
+          background 0.15s ease,
+          border-color 0.15s ease;
+      }
+      .btn-primary {
+        background: var(--accent);
+        color: var(--accent-ink);
+        font-weight: 600;
+      }
+      .btn-primary:hover {
+        transform: translateY(-1px);
+      }
+      .btn-ghost {
+        border-color: var(--line-strong);
+        color: var(--ink);
+      }
+      .btn-ghost:hover {
+        border-color: var(--accent);
+        color: var(--accent);
+      }
 
-  /* stat strip */
-  .stat-strip {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    border: 1px solid var(--line);
-    border-radius: var(--radius-md);
-    overflow: hidden;
-    margin-top: clamp(2.6rem, 5vw, 3.8rem);
-    background: var(--surface);
-  }
-  .stat {
-    padding: 1.3rem 1.2rem;
-    border-left: 1px solid var(--line);
-  }
-  .stat:first-child { border-left: none; }
-  .stat-value {
-    font-family: var(--font-display);
-    font-size: clamp(1.6rem, 3vw, 2.1rem);
-    font-weight: 700;
-    color: var(--accent);
-    font-variant-numeric: tabular-nums;
-    line-height: 1;
-  }
-  .stat-label {
-    font-family: var(--font-mono);
-    font-size: 0.72rem;
-    color: var(--ink-faint);
-    letter-spacing: 0.02em;
-    margin-top: 0.5rem;
-  }
+      /* stat strip */
+      .stat-strip {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        border: 1px solid var(--line);
+        border-radius: var(--radius-md);
+        overflow: hidden;
+        margin-top: clamp(2.6rem, 5vw, 3.8rem);
+        background: var(--surface);
+      }
+      .stat {
+        padding: 1.3rem 1.2rem;
+        border-left: 1px solid var(--line);
+      }
+      .stat:first-child {
+        border-left: none;
+      }
+      .stat-value {
+        font-family: var(--font-display);
+        font-size: clamp(1.6rem, 3vw, 2.1rem);
+        font-weight: 700;
+        color: var(--accent);
+        font-variant-numeric: tabular-nums;
+        line-height: 1;
+      }
+      .stat-label {
+        font-family: var(--font-mono);
+        font-size: 0.72rem;
+        color: var(--ink-faint);
+        letter-spacing: 0.02em;
+        margin-top: 0.5rem;
+      }
 
-  /* ============ SUMMARY / SOBRE ============ */
-  .sobre-grid {
-    display: grid;
-    grid-template-columns: 1.4fr 1fr;
-    gap: clamp(2rem, 5vw, 4rem);
-    align-items: start;
-  }
-  .sobre-grid p {
-    color: var(--ink-soft);
-    max-width: 62ch;
-    font-size: 1.02rem;
-  }
-  .sobre-grid p + p { margin-top: 1.1rem; }
-  .sobre-grid p strong { color: var(--ink); font-weight: 600; }
+      /* ============ SUMMARY / SOBRE ============ */
+      .sobre-grid {
+        display: grid;
+        grid-template-columns: 1.4fr 1fr;
+        gap: clamp(2rem, 5vw, 4rem);
+        align-items: start;
+      }
+      .sobre-grid p {
+        color: var(--ink-soft);
+        max-width: 62ch;
+        font-size: 1.02rem;
+      }
+      .sobre-grid p + p {
+        margin-top: 1.1rem;
+      }
+      .sobre-grid p strong {
+        color: var(--ink);
+        font-weight: 600;
+      }
 
-  .info-card {
-    border: 1px solid var(--line);
-    border-radius: var(--radius-md);
-    background: var(--surface);
-    padding: 1.5rem;
-  }
-  .info-card h3 {
-    font-family: var(--font-mono);
-    font-size: 0.78rem;
-    text-transform: uppercase;
-    letter-spacing: 0.08em;
-    color: var(--ink-faint);
-    font-weight: 500;
-    margin-bottom: 1rem;
-  }
-  .info-card dl { display: flex; flex-direction: column; gap: 0.8rem; }
-  .info-card .row { display: flex; justify-content: space-between; gap: 1rem; font-size: 0.88rem; }
-  .info-card dt { color: var(--ink-faint); }
-  .info-card dd { margin: 0; font-weight: 600; text-align: right; }
+      .info-card {
+        border: 1px solid var(--line);
+        border-radius: var(--radius-md);
+        background: var(--surface);
+        padding: 1.5rem;
+      }
+      .info-card h3 {
+        font-family: var(--font-mono);
+        font-size: 0.78rem;
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+        color: var(--ink-faint);
+        font-weight: 500;
+        margin-bottom: 1rem;
+      }
+      .info-card dl {
+        display: flex;
+        flex-direction: column;
+        gap: 0.8rem;
+      }
+      .info-card .row {
+        display: flex;
+        justify-content: space-between;
+        gap: 1rem;
+        font-size: 0.88rem;
+      }
+      .info-card dt {
+        color: var(--ink-faint);
+      }
+      .info-card dd {
+        margin: 0;
+        font-weight: 600;
+        text-align: right;
+      }
 
-  /* ============ STACK / SKILLS ============ */
-  .spec-sheet {
-    border: 1px solid var(--line);
-    border-radius: var(--radius-md);
-    background: var(--surface);
-    overflow: hidden;
-  }
-  .spec-row {
-    display: grid;
-    grid-template-columns: 12rem 1fr;
-    border-top: 1px solid var(--line);
-  }
-  .spec-row:first-child { border-top: none; }
-  .spec-key {
-    font-family: var(--font-mono);
-    font-size: 0.78rem;
-    text-transform: uppercase;
-    letter-spacing: 0.06em;
-    color: var(--ink-faint);
-    padding: 1.15rem 1.3rem;
-    background: var(--surface-2);
-    border-right: 1px solid var(--line);
-  }
-  .spec-val {
-    padding: 1.1rem 1.3rem;
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.5rem;
-    align-items: center;
-  }
-  .pill {
-    font-size: 0.85rem;
-    padding: 0.32rem 0.75rem;
-    border-radius: 999px;
-    border: 1px solid var(--line-strong);
-    background: var(--bg);
-    color: var(--ink);
-    font-weight: 500;
-  }
-  .pill.accent { border-color: color-mix(in srgb, var(--accent-2) 55%, var(--line-strong)); color: var(--accent-2); }
+      /* ============ STACK / SKILLS ============ */
+      .spec-sheet {
+        border: 1px solid var(--line);
+        border-radius: var(--radius-md);
+        background: var(--surface);
+        overflow: hidden;
+      }
+      .spec-row {
+        display: grid;
+        grid-template-columns: 12rem 1fr;
+        border-top: 1px solid var(--line);
+      }
+      .spec-row:first-child {
+        border-top: none;
+      }
+      .spec-key {
+        font-family: var(--font-mono);
+        font-size: 0.78rem;
+        text-transform: uppercase;
+        letter-spacing: 0.06em;
+        color: var(--ink-faint);
+        padding: 1.15rem 1.3rem;
+        background: var(--surface-2);
+        border-right: 1px solid var(--line);
+      }
+      .spec-val {
+        padding: 1.1rem 1.3rem;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+        align-items: center;
+      }
+      .pill {
+        font-size: 0.85rem;
+        padding: 0.32rem 0.75rem;
+        border-radius: 999px;
+        border: 1px solid var(--line-strong);
+        background: var(--bg);
+        color: var(--ink);
+        font-weight: 500;
+      }
+      .pill.accent {
+        border-color: color-mix(
+          in srgb,
+          var(--accent-2) 55%,
+          var(--line-strong)
+        );
+        color: var(--accent-2);
+      }
 
-  /* ============ EXPERIENCE TIMELINE ============ */
-  .timeline { display: flex; flex-direction: column; gap: 2.75rem; }
-  .t-item { display: grid; grid-template-columns: 1.5rem 1fr; gap: 1.4rem; position: relative; }
-  .t-rail { position: relative; display: flex; justify-content: center; }
-  .t-dot {
-    width: 0.8rem; height: 0.8rem; border-radius: 50%;
-    background: var(--surface); border: 2px solid var(--accent);
-    margin-top: 0.35rem; z-index: 1;
-  }
-  .t-item.current .t-dot { background: var(--accent); box-shadow: 0 0 0 4px color-mix(in srgb, var(--accent) 22%, transparent); }
-  .t-item:not(:last-child) .t-rail::after {
-    content: "";
-    position: absolute;
-    top: 0.6rem;
-    bottom: -2.75rem;
-    left: 50%;
-    width: 1px;
-    background: var(--line);
-    transform: translateX(-50%);
-  }
-  .t-head {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: baseline;
-    justify-content: space-between;
-    gap: 0.5rem 1.2rem;
-  }
-  .t-role { font-size: 1.2rem; font-weight: 700; font-family: var(--font-body); }
-  .t-company { color: var(--accent-2); font-weight: 600; }
-  .t-dates {
-    font-family: var(--font-mono);
-    font-size: 0.76rem;
-    color: var(--ink-faint);
-    background: var(--surface-2);
-    border: 1px solid var(--line);
-    padding: 0.25rem 0.6rem;
-    border-radius: var(--radius-sm);
-    white-space: nowrap;
-  }
-  .t-desc { color: var(--ink-soft); font-size: 0.92rem; margin-top: 0.4rem; max-width: 60ch; }
-  .t-item ul { margin-top: 0.9rem; display: flex; flex-direction: column; gap: 0.5rem; }
-  .t-item li {
-    font-size: 0.92rem;
-    color: var(--ink-soft);
-    padding-left: 1.1rem;
-    position: relative;
-  }
-  .t-item li::before {
-    content: "";
-    position: absolute;
-    left: 0;
-    top: 0.55em;
-    width: 5px; height: 5px;
-    background: var(--line-strong);
-  }
+      /* ============ EXPERIENCE TIMELINE ============ */
+      .timeline {
+        display: flex;
+        flex-direction: column;
+        gap: 2.75rem;
+      }
+      .t-item {
+        display: grid;
+        grid-template-columns: 1.5rem 1fr;
+        gap: 1.4rem;
+        position: relative;
+      }
+      .t-rail {
+        position: relative;
+        display: flex;
+        justify-content: center;
+      }
+      .t-dot {
+        width: 0.8rem;
+        height: 0.8rem;
+        border-radius: 50%;
+        background: var(--surface);
+        border: 2px solid var(--accent);
+        margin-top: 0.35rem;
+        z-index: 1;
+      }
+      .t-item.current .t-dot {
+        background: var(--accent);
+        box-shadow: 0 0 0 4px color-mix(in srgb, var(--accent) 22%, transparent);
+      }
+      .t-item:not(:last-child) .t-rail::after {
+        content: '';
+        position: absolute;
+        top: 0.6rem;
+        bottom: -2.75rem;
+        left: 50%;
+        width: 1px;
+        background: var(--line);
+        transform: translateX(-50%);
+      }
+      .t-head {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: baseline;
+        justify-content: space-between;
+        gap: 0.5rem 1.2rem;
+      }
+      .t-role {
+        font-size: 1.2rem;
+        font-weight: 700;
+        font-family: var(--font-body);
+      }
+      .t-company {
+        color: var(--accent-2);
+        font-weight: 600;
+      }
+      .t-dates {
+        font-family: var(--font-mono);
+        font-size: 0.76rem;
+        color: var(--ink-faint);
+        background: var(--surface-2);
+        border: 1px solid var(--line);
+        padding: 0.25rem 0.6rem;
+        border-radius: var(--radius-sm);
+        white-space: nowrap;
+      }
+      .t-desc {
+        color: var(--ink-soft);
+        font-size: 0.92rem;
+        margin-top: 0.4rem;
+        max-width: 60ch;
+      }
+      .t-item ul {
+        margin-top: 0.9rem;
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+      }
+      .t-item li {
+        font-size: 0.92rem;
+        color: var(--ink-soft);
+        padding-left: 1.1rem;
+        position: relative;
+      }
+      .t-item li::before {
+        content: '';
+        position: absolute;
+        left: 0;
+        top: 0.55em;
+        width: 5px;
+        height: 5px;
+        background: var(--line-strong);
+      }
 
-  /* ============ PROJECTS ============ */
-  .proj-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-    gap: 1.25rem;
-  }
-  .proj-card {
-    border: 1px solid var(--line);
-    border-radius: var(--radius-md);
-    background: var(--surface);
-    padding: 1.6rem;
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-    transition: border-color 0.15s ease, transform 0.15s ease;
-  }
-  .proj-card:hover { border-color: var(--accent); transform: translateY(-3px); }
-  .proj-tag {
-    font-family: var(--font-mono);
-    font-size: 0.72rem;
-    letter-spacing: 0.04em;
-    text-transform: uppercase;
-    color: var(--accent);
-  }
-  .proj-card h3 { font-size: 1.25rem; font-weight: 700; }
-  .proj-card p { color: var(--ink-soft); font-size: 0.9rem; flex: 1; }
-  .proj-metrics { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: auto; }
-  .metric {
-    font-family: var(--font-mono);
-    font-size: 0.74rem;
-    color: var(--ink);
-    background: var(--surface-2);
-    border: 1px solid var(--line);
-    padding: 0.28rem 0.55rem;
-    border-radius: var(--radius-sm);
-  }
+      /* ============ PROJECTS ============ */
+      .proj-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+        gap: 1.25rem;
+      }
+      .proj-card {
+        border: 1px solid var(--line);
+        border-radius: var(--radius-md);
+        background: var(--surface);
+        padding: 1.6rem;
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+        transition:
+          border-color 0.15s ease,
+          transform 0.15s ease;
+      }
+      .proj-card:hover {
+        border-color: var(--accent);
+        transform: translateY(-3px);
+      }
+      .proj-tag {
+        font-family: var(--font-mono);
+        font-size: 0.72rem;
+        letter-spacing: 0.04em;
+        text-transform: uppercase;
+        color: var(--accent);
+      }
+      .proj-card h3 {
+        font-size: 1.25rem;
+        font-weight: 700;
+      }
+      .proj-card p {
+        color: var(--ink-soft);
+        font-size: 0.9rem;
+        flex: 1;
+      }
+      .proj-metrics {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+        margin-top: auto;
+      }
+      .metric {
+        font-family: var(--font-mono);
+        font-size: 0.74rem;
+        color: var(--ink);
+        background: var(--surface-2);
+        border: 1px solid var(--line);
+        padding: 0.28rem 0.55rem;
+        border-radius: var(--radius-sm);
+      }
 
-  /* ============ EDUCATION ============ */
-  .edu-list { display: flex; flex-direction: column; }
-  .edu-row {
-    display: grid;
-    grid-template-columns: 1fr auto;
-    gap: 1rem;
-    padding: 1.1rem 0;
-    border-top: 1px solid var(--line);
-    align-items: baseline;
-  }
-  .edu-row:first-child { border-top: none; }
-  .edu-title { font-weight: 600; font-size: 1rem; }
-  .edu-org { color: var(--ink-soft); font-size: 0.88rem; margin-top: 0.15rem; }
-  .edu-period {
-    font-family: var(--font-mono);
-    font-size: 0.78rem;
-    color: var(--ink-faint);
-    white-space: nowrap;
-    text-align: right;
-  }
+      /* ============ EDUCATION ============ */
+      .edu-list {
+        display: flex;
+        flex-direction: column;
+      }
+      .edu-row {
+        display: grid;
+        grid-template-columns: 1fr auto;
+        gap: 1rem;
+        padding: 1.1rem 0;
+        border-top: 1px solid var(--line);
+        align-items: baseline;
+      }
+      .edu-row:first-child {
+        border-top: none;
+      }
+      .edu-title {
+        font-weight: 600;
+        font-size: 1rem;
+      }
+      .edu-org {
+        color: var(--ink-soft);
+        font-size: 0.88rem;
+        margin-top: 0.15rem;
+      }
+      .edu-period {
+        font-family: var(--font-mono);
+        font-size: 0.78rem;
+        color: var(--ink-faint);
+        white-space: nowrap;
+        text-align: right;
+      }
 
-  /* ============ ROLE DISTRIBUTION ============ */
-  .roles-chart {
-    position: relative;
-    border: 1px solid var(--line);
-    border-radius: var(--radius-md);
-    background: var(--surface);
-    padding: clamp(1.2rem, 3vw, 1.8rem);
-  }
-  .roles-head {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    align-items: baseline;
-    gap: 0.4rem 1rem;
-    margin-bottom: 1.4rem;
-  }
-  .roles-head h3 {
-    font-family: var(--font-mono);
-    font-size: 0.78rem;
-    text-transform: uppercase;
-    letter-spacing: 0.08em;
-    color: var(--ink-faint);
-    font-weight: 500;
-  }
-  .roles-head span { font-family: var(--font-mono); font-size: 0.74rem; color: var(--ink-faint); }
-  .roles-list { display: flex; flex-direction: column; }
-  .role-bar {
-    display: grid;
-    grid-template-columns: 17rem 1fr;
-    gap: 1.2rem;
-    align-items: center;
-    padding: 0.55rem 0.4rem;
-    border-radius: var(--radius-sm);
-    cursor: default;
-  }
-  .role-bar:hover, .role-bar:focus-visible { background: var(--surface-2); }
-  .role-name { font-size: 0.9rem; font-weight: 600; line-height: 1.3; }
-  .role-org { display: block; font-size: 0.78rem; font-weight: 400; color: var(--ink-faint); }
-  .role-track { display: flex; align-items: center; gap: 0.6rem; min-width: 0; }
-  .role-fill {
-    height: 14px;
-    width: 0;
-    min-width: 4px;
-    border-radius: 0 4px 4px 0;
-    background: var(--accent-2);
-    flex: none;
-  }
-  .role-bar.current .role-fill { background: var(--accent); }
-  @media (prefers-reduced-motion: no-preference) {
-    .role-fill { transition: width 0.8s ease; }
-  }
-  .role-value {
-    font-family: var(--font-mono);
-    font-size: 0.78rem;
-    color: var(--ink-soft);
-    font-variant-numeric: tabular-nums;
-    white-space: nowrap;
-  }
-  .roles-tip {
-    position: absolute;
-    z-index: 5;
-    pointer-events: none;
-    background: var(--ink);
-    color: var(--bg);
-    font-size: 0.78rem;
-    line-height: 1.4;
-    padding: 0.5rem 0.7rem;
-    border-radius: var(--radius-sm);
-    white-space: nowrap;
-    opacity: 0;
-    transition: opacity 0.12s ease;
-  }
-  .roles-tip.show { opacity: 1; }
-  .roles-tip .mono { font-family: var(--font-mono); font-size: 0.72rem; opacity: 0.75; }
+      /* ============ ROLE DISTRIBUTION ============ */
+      .roles-chart {
+        position: relative;
+        border: 1px solid var(--line);
+        border-radius: var(--radius-md);
+        background: var(--surface);
+        padding: clamp(1.2rem, 3vw, 1.8rem);
+      }
+      .roles-head {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        align-items: baseline;
+        gap: 0.4rem 1rem;
+        margin-bottom: 1.4rem;
+      }
+      .roles-head h3 {
+        font-family: var(--font-mono);
+        font-size: 0.78rem;
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+        color: var(--ink-faint);
+        font-weight: 500;
+      }
+      .roles-head span {
+        font-family: var(--font-mono);
+        font-size: 0.74rem;
+        color: var(--ink-faint);
+      }
+      .roles-list {
+        display: flex;
+        flex-direction: column;
+      }
+      .role-bar {
+        display: grid;
+        grid-template-columns: 17rem 1fr;
+        gap: 1.2rem;
+        align-items: center;
+        padding: 0.55rem 0.4rem;
+        border-radius: var(--radius-sm);
+        cursor: default;
+      }
+      .role-bar:hover,
+      .role-bar:focus-visible {
+        background: var(--surface-2);
+      }
+      .role-name {
+        font-size: 0.9rem;
+        font-weight: 600;
+        line-height: 1.3;
+      }
+      .role-org {
+        display: block;
+        font-size: 0.78rem;
+        font-weight: 400;
+        color: var(--ink-faint);
+      }
+      .role-track {
+        display: flex;
+        align-items: center;
+        gap: 0.6rem;
+        min-width: 0;
+      }
+      .role-fill {
+        height: 14px;
+        width: 0;
+        min-width: 4px;
+        border-radius: 0 4px 4px 0;
+        background: var(--accent-2);
+        flex: none;
+      }
+      .role-bar.current .role-fill {
+        background: var(--accent);
+      }
+      @media (prefers-reduced-motion: no-preference) {
+        .role-fill {
+          transition: width 0.8s ease;
+        }
+      }
+      .role-value {
+        font-family: var(--font-mono);
+        font-size: 0.78rem;
+        color: var(--ink-soft);
+        font-variant-numeric: tabular-nums;
+        white-space: nowrap;
+      }
+      .roles-tip {
+        position: absolute;
+        z-index: 5;
+        pointer-events: none;
+        background: var(--ink);
+        color: var(--bg);
+        font-size: 0.78rem;
+        line-height: 1.4;
+        padding: 0.5rem 0.7rem;
+        border-radius: var(--radius-sm);
+        white-space: nowrap;
+        opacity: 0;
+        transition: opacity 0.12s ease;
+      }
+      .roles-tip.show {
+        opacity: 1;
+      }
+      .roles-tip .mono {
+        font-family: var(--font-mono);
+        font-size: 0.72rem;
+        opacity: 0.75;
+      }
 
-  /* ============ CONTACT / FOOTER ============ */
-  .contact-panel {
-    border: 1px solid var(--line);
-    border-radius: var(--radius-md);
-    background: var(--surface);
-    padding: clamp(2rem, 5vw, 3rem);
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    align-items: center;
-    gap: 2rem;
-  }
-  .contact-panel h2 { font-size: clamp(1.7rem, 3.4vw, 2.3rem); max-width: 18ch; }
-  .contact-panel .sub { color: var(--ink-soft); margin-top: 0.6rem; max-width: 40ch; font-size: 0.95rem; }
-  .contact-actions { display: flex; flex-direction: column; gap: 0.7rem; }
+      /* ============ CONTACT / FOOTER ============ */
+      .contact-panel {
+        border: 1px solid var(--line);
+        border-radius: var(--radius-md);
+        background: var(--surface);
+        padding: clamp(2rem, 5vw, 3rem);
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        align-items: center;
+        gap: 2rem;
+      }
+      .contact-panel h2 {
+        font-size: clamp(1.7rem, 3.4vw, 2.3rem);
+        max-width: 18ch;
+      }
+      .contact-panel .sub {
+        color: var(--ink-soft);
+        margin-top: 0.6rem;
+        max-width: 40ch;
+        font-size: 0.95rem;
+      }
+      .contact-actions {
+        display: flex;
+        flex-direction: column;
+        gap: 0.7rem;
+      }
 
-  footer {
-    padding: 2.2rem 0 3rem;
-    font-family: var(--font-mono);
-    font-size: 0.76rem;
-    color: var(--ink-faint);
-    display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    gap: 0.5rem;
-  }
+      footer {
+        padding: 2.2rem 0 3rem;
+        font-family: var(--font-mono);
+        font-size: 0.76rem;
+        color: var(--ink-faint);
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+      }
 
-  /* ============ RESPONSIVE ============ */
-  @media (max-width: 760px) {
-    .sobre-grid { grid-template-columns: 1fr; }
-    .stat-strip { grid-template-columns: repeat(2, 1fr); }
-    .stat:nth-child(3) { border-left: none; }
-    .stat:nth-child(3), .stat:nth-child(4) { border-top: 1px solid var(--line); }
-    .spec-row { grid-template-columns: 1fr; }
-    .spec-key { border-right: none; border-bottom: 1px solid var(--line); }
-    .hero-trace { display: none; }
-    .contact-panel { flex-direction: column; align-items: flex-start; }
-    .role-bar { grid-template-columns: 1fr; gap: 0.4rem; }
-  }
-</style>
+      /* ============ RESPONSIVE ============ */
+      @media (max-width: 760px) {
+        .sobre-grid {
+          grid-template-columns: 1fr;
+        }
+        .stat-strip {
+          grid-template-columns: repeat(2, 1fr);
+        }
+        .stat:nth-child(3) {
+          border-left: none;
+        }
+        .stat:nth-child(3),
+        .stat:nth-child(4) {
+          border-top: 1px solid var(--line);
+        }
+        .spec-row {
+          grid-template-columns: 1fr;
+        }
+        .spec-key {
+          border-right: none;
+          border-bottom: 1px solid var(--line);
+        }
+        .hero-trace {
+          display: none;
+        }
+        .contact-panel {
+          flex-direction: column;
+          align-items: flex-start;
+        }
+        .role-bar {
+          grid-template-columns: 1fr;
+          gap: 0.4rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="grid-field" aria-hidden="true"></div>
 
-</head>
-<body>
-
-<div class="grid-field" aria-hidden="true"></div>
-
-<nav class="nav">
-  <div class="nav-inner">
-    <span class="nav-mark"><span class="dot"></span>GUILHERME FARIAS</span>
-    <div class="nav-links" id="nav-links">
-      <a href="#home">home</a>
-      <a href="#about">about</a>
-      <a href="#stack">stack</a>
-      <a href="#experience">experience</a>
-      <a href="#projects">projects</a>
-      <a href="#education">education</a>
-      <a href="#roles">roles</a>
-      <a href="#contact">contact</a>
-    </div>
-  </div>
-</nav>
-
-<main class="wrap">
-
-  <section id="home" class="hero">
-    <svg class="hero-trace" viewBox="0 0 400 500" aria-hidden="true">
-      <g fill="none" stroke="var(--accent-2)" stroke-width="1.4">
-        <path d="M400 40 H260 V120 H340 V220 H220" />
-        <path d="M400 260 H300 V340 H380" />
-        <path d="M400 400 H240 V460 H180" />
-      </g>
-      <g fill="var(--accent-2)">
-        <circle cx="260" cy="40" r="4" />
-        <circle cx="220" cy="220" r="4" />
-        <circle cx="300" cy="260" r="4" />
-        <circle cx="380" cy="340" r="4" />
-        <circle cx="240" cy="400" r="4" />
-        <circle cx="180" cy="460" r="4" />
-      </g>
-    </svg>
-
-    <div class="hero-eyebrow"><span class="blink"></span>OPEN TO NEW PROJECTS · SERTÃOZINHO, BRAZIL</div>
-    <h1>Guilherme<br>Farias</h1>
-    <p class="hero-role"><strong>Full Stack</strong> developer with 4+ years building web products and Node.js backend systems — now <strong>Process &amp; Technology Manager</strong> at MTS.</p>
-
-    <div class="meta-row">
-      <a class="meta-chip" href="https://www.linkedin.com/in/guilhermefarias21031" target="_blank" rel="noopener">
-        <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><rect x="3" y="3" width="18" height="18" rx="2"/><line x1="8" y1="11" x2="8" y2="16"/><line x1="8" y1="7.5" x2="8" y2="7.5"/><line x1="12" y1="16" x2="12" y2="11"/><path d="M12 13c0-1.2 1-2 2-2s2 .8 2 2v3"/></svg>
-        /in/guilhermefarias21031
-      </a>
-      <a class="meta-chip" href="mailto:guilhermefarias210303@gmail.com">
-        <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg>
-        guilhermefarias210303@gmail.com
-      </a>
-      <a class="meta-chip" href="tel:+5516988447335">
-        <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h4l2 5-2.5 1.5a12 12 0 0 0 6 6L15 14l5 2v4a2 2 0 0 1-2 2C9.7 22 2 14.3 2 6a2 2 0 0 1 2-2z"/></svg>
-        +55 (16) 98844-7335
-      </a>
-      <span class="meta-chip" style="cursor:default;">
-        <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0z"/><circle cx="12" cy="10" r="3"/></svg>
-        Sertãozinho, SP · Brazil
-      </span>
-    </div>
-
-    <div class="hero-actions">
-      <a class="btn btn-primary" href="#contact">get in touch →</a>
-      <a class="btn btn-ghost" href="#experience">see my track record</a>
-    </div>
-
-    <div class="stat-strip reveal">
-      <div class="stat"><div class="stat-value">4+</div><div class="stat-label">YEARS IN DEVELOPMENT</div></div>
-      <div class="stat"><div class="stat-value">1100+</div><div class="stat-label">TICKETS RESOLVED · 7 MONTHS</div></div>
-      <div class="stat"><div class="stat-value">500+</div><div class="stat-label">GYMS ON ACADESYSTEM</div></div>
-      <div class="stat"><div class="stat-value">RAG</div><div class="stat-label">AI PIPELINES · EMBEDDINGS</div></div>
-    </div>
-  </section>
-
-  <section id="about">
-    <div class="kicker">01 — Summary</div>
-    <h2 class="section-title reveal">End to end: from technical design to delivery.</h2>
-    <div class="sobre-grid reveal">
-      <div>
-        <p><strong>Full Stack</strong> developer with 4+ years of experience building scalable web applications and backend systems with <strong>Node.js</strong>. Strong background in system integrations, data processing, and delivering solutions built around real business needs.</p>
-        <p>Experienced across the entire development lifecycle — from technical design to delivery — with a focus on performance, maintainability, and user experience. Recently working on <strong>AI</strong> solutions, including embedding pipelines and intelligent data retrieval (RAG).</p>
+    <nav class="nav">
+      <div class="nav-inner">
+        <span class="nav-mark"><span class="dot"></span>GUILHERME FARIAS</span>
+        <div class="nav-links" id="nav-links">
+          <a href="#home">home</a>
+          <a href="#about">about</a>
+          <a href="#stack">stack</a>
+          <a href="#experience">experience</a>
+          <a href="#projects">projects</a>
+          <a href="#education">education</a>
+          <a href="#roles">roles</a>
+          <a href="#contact">contact</a>
+        </div>
       </div>
-      <div class="info-card">
-        <h3>Quick facts</h3>
-        <dl>
-          <div class="row"><dt>Current role</dt><dd>Process &amp; Technology Manager</dd></div>
-          <div class="row"><dt>Company</dt><dd>MTS</dd></div>
-          <div class="row"><dt>Based in</dt><dd>Sertãozinho, SP, Brazil</dd></div>
-          <div class="row"><dt>Languages</dt><dd>Portuguese, English</dd></div>
-          <div class="row"><dt>Education</dt><dd>Software Engineering (Estácio)</dd></div>
-        </dl>
-      </div>
-    </div>
-  </section>
+    </nav>
 
-  <section id="stack">
-    <div class="kicker">02 — Tech stack</div>
-    <h2 class="section-title reveal">The tools of the trade, laid out as a datasheet.</h2>
-    <div class="spec-sheet reveal">
-      <div class="spec-row">
-        <div class="spec-key">Backend</div>
-        <div class="spec-val"><span class="pill">Node.js</span><span class="pill">REST APIs</span><span class="pill">System integrations</span></div>
-      </div>
-      <div class="spec-row">
-        <div class="spec-key">Frontend</div>
-        <div class="spec-val"><span class="pill">Next.js</span><span class="pill">React</span><span class="pill">TypeScript</span></div>
-      </div>
-      <div class="spec-row">
-        <div class="spec-key">Databases</div>
-        <div class="spec-val"><span class="pill">PostgreSQL</span><span class="pill">MySQL</span></div>
-      </div>
-      <div class="spec-row">
-        <div class="spec-key">AI &amp; data</div>
-        <div class="spec-val"><span class="pill accent">Embeddings</span><span class="pill accent">RAG</span><span class="pill accent">Reranking</span><span class="pill accent">Vector search</span></div>
-      </div>
-      <div class="spec-row">
-        <div class="spec-key">Tools</div>
-        <div class="spec-val"><span class="pill">Git</span><span class="pill">Scrum / Kanban</span><span class="pill">Figma</span></div>
-      </div>
-      <div class="spec-row">
-        <div class="spec-key">Soft skills</div>
-        <div class="spec-val"><span class="pill">Team leadership</span><span class="pill">Proactivity</span><span class="pill">Teamwork</span></div>
-      </div>
-    </div>
-  </section>
+    <main class="wrap">
+      <section id="home" class="hero">
+        <svg class="hero-trace" viewBox="0 0 400 500" aria-hidden="true">
+          <g fill="none" stroke="var(--accent-2)" stroke-width="1.4">
+            <path d="M400 40 H260 V120 H340 V220 H220" />
+            <path d="M400 260 H300 V340 H380" />
+            <path d="M400 400 H240 V460 H180" />
+          </g>
+          <g fill="var(--accent-2)">
+            <circle cx="260" cy="40" r="4" />
+            <circle cx="220" cy="220" r="4" />
+            <circle cx="300" cy="260" r="4" />
+            <circle cx="380" cy="340" r="4" />
+            <circle cx="240" cy="400" r="4" />
+            <circle cx="180" cy="460" r="4" />
+          </g>
+        </svg>
 
-  <section id="experience">
-    <div class="kicker">03 — Experience</div>
-    <h2 class="section-title reveal">From tech support to process and technology management.</h2>
+        <div class="hero-eyebrow">
+          <span class="blink"></span>OPEN TO NEW PROJECTS · SERTÃOZINHO, BRAZIL
+        </div>
+        <h1>Guilherme<br />Farias</h1>
+        <p class="hero-role">
+          <strong>Full Stack</strong> developer with 5+ years building web
+          products and Node.js backend systems — now
+          <strong>Process &amp; Technology Manager</strong> at MTS.
+        </p>
 
-    <div class="timeline">
+        <div class="meta-row">
+          <a
+            class="meta-chip"
+            href="https://www.linkedin.com/in/guilhermefarias21031"
+            target="_blank"
+            rel="noopener"
+          >
+            <svg
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke-width="2"
+              stroke-linecap="round"
+            >
+              <rect x="3" y="3" width="18" height="18" rx="2" />
+              <line x1="8" y1="11" x2="8" y2="16" />
+              <line x1="8" y1="7.5" x2="8" y2="7.5" />
+              <line x1="12" y1="16" x2="12" y2="11" />
+              <path d="M12 13c0-1.2 1-2 2-2s2 .8 2 2v3" />
+            </svg>
+            /in/guilhermefarias21031
+          </a>
+          <a class="meta-chip" href="mailto:guilhermefarias210303@gmail.com">
+            <svg
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <rect x="3" y="5" width="18" height="14" rx="2" />
+              <path d="M3 7l9 6 9-6" />
+            </svg>
+            guilhermefarias210303@gmail.com
+          </a>
+          <a class="meta-chip" href="tel:+5516988447335">
+            <svg
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <path
+                d="M4 4h4l2 5-2.5 1.5a12 12 0 0 0 6 6L15 14l5 2v4a2 2 0 0 1-2 2C9.7 22 2 14.3 2 6a2 2 0 0 1 2-2z"
+              />
+            </svg>
+            +55 (16) 98844-7335
+          </a>
+          <span class="meta-chip" style="cursor: default">
+            <svg
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0z" />
+              <circle cx="12" cy="10" r="3" />
+            </svg>
+            Sertãozinho, SP · Brazil
+          </span>
+        </div>
 
-      <div class="t-item current reveal">
-        <div class="t-rail"><div class="t-dot"></div></div>
-        <div>
-          <div class="t-head">
-            <div><span class="t-role">Process &amp; Technology Manager</span> — <span class="t-company">MTS</span></div>
-            <span class="t-dates">SEP 2026 — PRESENT</span>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="#contact">get in touch →</a>
+          <a class="btn btn-ghost" href="#experience">see my track record</a>
+        </div>
+
+        <div class="stat-strip reveal">
+          <div class="stat">
+            <div class="stat-value">4+</div>
+            <div class="stat-label">YEARS IN DEVELOPMENT</div>
           </div>
-          <p class="t-desc">Manufacturer of parts for sugarcane harvesters and farm machinery, with CNC machining, a repair shop, metal fabrication, and engine and pump services, supplying the region's sugar and ethanol mills.</p>
-          <ul>
-            <li>Lead processes and technology, reporting directly to the owners and driving the company's management plan — direction, structure, cadence, and numbers — in roughly 90-day phases.</li>
-            <li>Redesigned the org chart and every seat in it: mission, routine, decision authority, and KPIs for each role, taking day-to-day decisions off the owner's plate.</li>
-            <li>Set up cost centers and the group's consolidated management P&amp;L, the foundation of the monthly results review.</li>
-            <li>Build internal applications and systems to organize and automate each department's processes.</li>
-            <li>Department scorecards and targets driven by ERP data, with revenue and customer portfolio analyses to guide the owners' decisions.</li>
-            <li>Designed the sales team's routine and targets (follow-up, account coverage, lead times confirmed with the plant) and the digital marketing initiatives.</li>
-          </ul>
-        </div>
-      </div>
-
-      <div class="t-item reveal">
-        <div class="t-rail"><div class="t-dot"></div></div>
-        <div>
-          <div class="t-head">
-            <div><span class="t-role">Solutions &amp; New Business Lead</span> — <span class="t-company">Statum Tecnologia</span></div>
-            <span class="t-dates">SEP 2025 — AUG 2026</span>
+          <div class="stat">
+            <div class="stat-value">1100+</div>
+            <div class="stat-label">TICKETS RESOLVED · 7 MONTHS</div>
           </div>
-          <p class="t-desc">Software development and cloud infrastructure company (Microsoft and Oracle), with a strong presence in the industrial and sugar-energy hub of inland São Paulo state.</p>
-          <ul>
-            <li>Owned the full sales cycle on my own — prospecting, qualification, technical discovery, proposal, negotiation, and closing — from lead generation to signed contract.</li>
-            <li>Averaged 5+ meetings a week with executives, IT, and business units at mid-size and large manufacturers.</li>
-            <li>Mapped the market and built a client portfolio in target sectors: sugar and ethanol, metalworking, agribusiness, and distribution.</li>
-            <li>Designed technical and commercial proposals and solution architectures: cloud migration (OCI/Azure), enterprise AI, BI, Senior ERP, and custom development.</li>
-            <li>Bridged clients and engineering, following each project from scoping to rollout and presenting proofs of concept I built myself.</li>
-          </ul>
-        </div>
-      </div>
-
-      <div class="t-item reveal">
-        <div class="t-rail"><div class="t-dot"></div></div>
-        <div>
-          <div class="t-head">
-            <div><span class="t-role">Project Manager</span> — <span class="t-company">Statum Tecnologia</span></div>
-            <span class="t-dates">OCT 2024 — SEP 2025</span>
+          <div class="stat">
+            <div class="stat-value">500+</div>
+            <div class="stat-label">GYMS ON ACADESYSTEM</div>
           </div>
-          <ul>
-            <li>Managed teams across 7+ concurrent projects, running alignment meetings, testing, and delivery.</li>
-            <li>Planned sprints and wrote backlogs, user stories, and tasks focused on continuous value delivery.</li>
-            <li>Structured the delivery process — documentation and feature handoff meetings.</li>
-            <li>Systems analysis and Figma interface design for end users and enterprise clients.</li>
-            <li>Quality control over development work, also acting as QA.</li>
-          </ul>
-        </div>
-      </div>
-
-      <div class="t-item reveal">
-        <div class="t-rail"><div class="t-dot"></div></div>
-        <div>
-          <div class="t-head">
-            <div><span class="t-role">Front End Developer</span> — <span class="t-company">Statum Tecnologia</span></div>
-            <span class="t-dates">OCT 2023 — OCT 2024</span>
+          <div class="stat">
+            <div class="stat-value">RAG</div>
+            <div class="stat-label">AI PIPELINES · EMBEDDINGS</div>
           </div>
-          <ul>
-            <li>Built features with Next.js and TypeScript, with a focus on well-structured code.</li>
-            <li>Followed consistent development standards, with special attention to error handling.</li>
-            <li>Worked closely with Node.js backend teams on API integrations.</li>
-            <li>Improved performance and user experience together with the product team.</li>
-          </ul>
         </div>
-      </div>
+      </section>
 
-      <div class="t-item reveal">
-        <div class="t-rail"><div class="t-dot"></div></div>
-        <div>
-          <div class="t-head">
-            <div><span class="t-role">Senior Technology Consultant</span> — <span class="t-company">Senior Noroeste Paulista</span></div>
-            <span class="t-dates">OCT 2023 — JAN 2024</span>
+      <section id="about">
+        <div class="kicker">01 — Summary</div>
+        <h2 class="section-title reveal">
+          End to end: from technical design to delivery.
+        </h2>
+        <div class="sobre-grid reveal">
+          <div>
+            <p>
+              <strong>Full Stack</strong> developer with 4+ years of experience
+              building scalable web applications and backend systems with
+              <strong>Node.js</strong>. Strong background in system
+              integrations, data processing, and delivering solutions built
+              around real business needs.
+            </p>
+            <p>
+              Experienced across the entire development lifecycle — from
+              technical design to delivery — with a focus on performance,
+              maintainability, and user experience. Recently working on
+              <strong>AI</strong> solutions, including embedding pipelines and
+              intelligent data retrieval (RAG).
+            </p>
           </div>
-          <p class="t-desc">The largest reseller of Senior Sistemas' ERP and HCM software in Brazil, repeatedly recognized as a national top performer.</p>
-          <ul>
-            <li>Developed system customization rules for clients.</li>
-            <li>Gathered requirements for new requests as a systems analyst.</li>
-            <li>Ran training sessions to help clients get the most out of the application.</li>
-          </ul>
-        </div>
-      </div>
-
-      <div class="t-item reveal">
-        <div class="t-rail"><div class="t-dot"></div></div>
-        <div>
-          <div class="t-head">
-            <div><span class="t-role">Technology Support Analyst</span> — <span class="t-company">Senior Noroeste Paulista</span></div>
-            <span class="t-dates">MAR 2023 — OCT 2024</span>
+          <div class="info-card">
+            <h3>Quick facts</h3>
+            <dl>
+              <div class="row">
+                <dt>Current role</dt>
+                <dd>Process &amp; Technology Manager</dd>
+              </div>
+              <div class="row">
+                <dt>Company</dt>
+                <dd>MTS</dd>
+              </div>
+              <div class="row">
+                <dt>Based in</dt>
+                <dd>Sertãozinho, SP, Brazil</dd>
+              </div>
+              <div class="row">
+                <dt>Languages</dt>
+                <dd>Portuguese, English</dd>
+              </div>
+              <div class="row">
+                <dt>Education</dt>
+                <dd>Software Engineering (Estácio)</dd>
+              </div>
+            </dl>
           </div>
-          <ul>
-            <li>Handled 1,100+ tickets in 7 months as the team's first support analyst.</li>
-            <li>Supported key accounts such as Raízen, Tereos, and Coplacana.</li>
-            <li>Top ticket closer in the technology area for 6 consecutive months.</li>
-            <li>Owned month-end closing day, supporting the team and managing open tickets.</li>
-          </ul>
         </div>
-      </div>
+      </section>
 
-    </div>
-  </section>
-
-  <section id="projects">
-    <div class="kicker">04 — Projects</div>
-    <h2 class="section-title reveal">Systems that made it off the drawing board.</h2>
-    <div class="proj-grid reveal">
-
-      <article class="proj-card">
-        <span class="proj-tag">Management · SaaS</span>
-        <h3>AcadeSystem</h3>
-        <p>Gym management system built to solve real customer pain points: a wide range of forms and UI/UX flows designed around day-to-day operations.</p>
-        <div class="proj-metrics">
-          <span class="metric">500+ registered gyms</span>
-          <span class="metric">100+ concurrent users</span>
+      <section id="stack">
+        <div class="kicker">02 — Tech stack</div>
+        <h2 class="section-title reveal">
+          The tools of the trade, laid out as a datasheet.
+        </h2>
+        <div class="spec-sheet reveal">
+          <div class="spec-row">
+            <div class="spec-key">Backend</div>
+            <div class="spec-val">
+              <span class="pill">Node.js</span
+              ><span class="pill">REST APIs</span
+              ><span class="pill">System integrations</span>
+            </div>
+          </div>
+          <div class="spec-row">
+            <div class="spec-key">Frontend</div>
+            <div class="spec-val">
+              <span class="pill">Next.js</span><span class="pill">React</span
+              ><span class="pill">TypeScript</span>
+            </div>
+          </div>
+          <div class="spec-row">
+            <div class="spec-key">Databases</div>
+            <div class="spec-val">
+              <span class="pill">PostgreSQL</span
+              ><span class="pill">MySQL</span>
+            </div>
+          </div>
+          <div class="spec-row">
+            <div class="spec-key">AI &amp; data</div>
+            <div class="spec-val">
+              <span class="pill accent">Embeddings</span
+              ><span class="pill accent">RAG</span
+              ><span class="pill accent">Reranking</span
+              ><span class="pill accent">Vector search</span>
+            </div>
+          </div>
+          <div class="spec-row">
+            <div class="spec-key">Tools</div>
+            <div class="spec-val">
+              <span class="pill">Git</span
+              ><span class="pill">Scrum / Kanban</span
+              ><span class="pill">Figma</span>
+            </div>
+          </div>
+          <div class="spec-row">
+            <div class="spec-key">Soft skills</div>
+            <div class="spec-val">
+              <span class="pill">Team leadership</span
+              ><span class="pill">Proactivity</span
+              ><span class="pill">Teamwork</span>
+            </div>
+          </div>
         </div>
-      </article>
+      </section>
 
-      <article class="proj-card">
-        <span class="proj-tag">Sales · PDF automation</span>
-        <h3>G-Offer</h3>
-        <p>Platform for generating standardized sales PDFs, built to speed up customer negotiations — with stockroom control and work order status tracking.</p>
-        <div class="proj-metrics">
-          <span class="metric">Stockroom control</span>
-          <span class="metric">End-to-end negotiation</span>
+      <section id="experience">
+        <div class="kicker">03 — Experience</div>
+        <h2 class="section-title reveal">
+          From tech support to process and technology management.
+        </h2>
+
+        <div class="timeline">
+          <div class="t-item current reveal">
+            <div class="t-rail"><div class="t-dot"></div></div>
+            <div>
+              <div class="t-head">
+                <div>
+                  <span class="t-role">Process &amp; Technology Manager</span> —
+                  <span class="t-company">MTS</span>
+                </div>
+                <span class="t-dates">SEP 2026 — PRESENT</span>
+              </div>
+              <p class="t-desc">
+                Manufacturer of parts for sugarcane harvesters and farm
+                machinery, with CNC machining, a repair shop, metal fabrication,
+                and engine and pump services, supplying the region's sugar and
+                ethanol mills.
+              </p>
+              <ul>
+                <li>
+                  Lead processes and technology, reporting directly to the
+                  owners and driving the company's management plan — direction,
+                  structure, cadence, and numbers — in roughly 90-day phases.
+                </li>
+                <li>
+                  Redesigned the org chart and every seat in it: mission,
+                  routine, decision authority, and KPIs for each role, taking
+                  day-to-day decisions off the owner's plate.
+                </li>
+                <li>
+                  Set up cost centers and the group's consolidated management
+                  P&amp;L, the foundation of the monthly results review.
+                </li>
+                <li>
+                  Build internal applications and systems to organize and
+                  automate each department's processes.
+                </li>
+                <li>
+                  Department scorecards and targets driven by ERP data, with
+                  revenue and customer portfolio analyses to guide the owners'
+                  decisions.
+                </li>
+                <li>
+                  Designed the sales team's routine and targets (follow-up,
+                  account coverage, lead times confirmed with the plant) and the
+                  digital marketing initiatives.
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="t-item reveal">
+            <div class="t-rail"><div class="t-dot"></div></div>
+            <div>
+              <div class="t-head">
+                <div>
+                  <span class="t-role">Solutions &amp; New Business Lead</span>
+                  — <span class="t-company">Statum Tecnologia</span>
+                </div>
+                <span class="t-dates">SEP 2025 — AUG 2026</span>
+              </div>
+              <p class="t-desc">
+                Software development and cloud infrastructure company (Microsoft
+                and Oracle), with a strong presence in the industrial and
+                sugar-energy hub of inland São Paulo state.
+              </p>
+              <ul>
+                <li>
+                  Owned the full sales cycle on my own — prospecting,
+                  qualification, technical discovery, proposal, negotiation, and
+                  closing — from lead generation to signed contract.
+                </li>
+                <li>
+                  Averaged 5+ meetings a week with executives, IT, and business
+                  units at mid-size and large manufacturers.
+                </li>
+                <li>
+                  Mapped the market and built a client portfolio in target
+                  sectors: sugar and ethanol, metalworking, agribusiness, and
+                  distribution.
+                </li>
+                <li>
+                  Designed technical and commercial proposals and solution
+                  architectures: cloud migration (OCI/Azure), enterprise AI, BI,
+                  Senior ERP, and custom development.
+                </li>
+                <li>
+                  Bridged clients and engineering, following each project from
+                  scoping to rollout and presenting proofs of concept I built
+                  myself.
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="t-item reveal">
+            <div class="t-rail"><div class="t-dot"></div></div>
+            <div>
+              <div class="t-head">
+                <div>
+                  <span class="t-role">Project Manager</span> —
+                  <span class="t-company">Statum Tecnologia</span>
+                </div>
+                <span class="t-dates">OCT 2024 — SEP 2025</span>
+              </div>
+              <ul>
+                <li>
+                  Managed teams across 7+ concurrent projects, running alignment
+                  meetings, testing, and delivery.
+                </li>
+                <li>
+                  Planned sprints and wrote backlogs, user stories, and tasks
+                  focused on continuous value delivery.
+                </li>
+                <li>
+                  Structured the delivery process — documentation and feature
+                  handoff meetings.
+                </li>
+                <li>
+                  Systems analysis and Figma interface design for end users and
+                  enterprise clients.
+                </li>
+                <li>
+                  Quality control over development work, also acting as QA.
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="t-item reveal">
+            <div class="t-rail"><div class="t-dot"></div></div>
+            <div>
+              <div class="t-head">
+                <div>
+                  <span class="t-role">Front End Developer</span> —
+                  <span class="t-company">Statum Tecnologia</span>
+                </div>
+                <span class="t-dates">OCT 2023 — OCT 2024</span>
+              </div>
+              <ul>
+                <li>
+                  Built features with Next.js and TypeScript, with a focus on
+                  well-structured code.
+                </li>
+                <li>
+                  Followed consistent development standards, with special
+                  attention to error handling.
+                </li>
+                <li>
+                  Worked closely with Node.js backend teams on API integrations.
+                </li>
+                <li>
+                  Improved performance and user experience together with the
+                  product team.
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="t-item reveal">
+            <div class="t-rail"><div class="t-dot"></div></div>
+            <div>
+              <div class="t-head">
+                <div>
+                  <span class="t-role">Senior Technology Consultant</span> —
+                  <span class="t-company">Senior Noroeste Paulista</span>
+                </div>
+                <span class="t-dates">OCT 2023 — JAN 2024</span>
+              </div>
+              <p class="t-desc">
+                The largest reseller of Senior Sistemas' ERP and HCM software in
+                Brazil, repeatedly recognized as a national top performer.
+              </p>
+              <ul>
+                <li>Developed system customization rules for clients.</li>
+                <li>
+                  Gathered requirements for new requests as a systems analyst.
+                </li>
+                <li>
+                  Ran training sessions to help clients get the most out of the
+                  application.
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="t-item reveal">
+            <div class="t-rail"><div class="t-dot"></div></div>
+            <div>
+              <div class="t-head">
+                <div>
+                  <span class="t-role">Technology Support Analyst</span> —
+                  <span class="t-company">Senior Noroeste Paulista</span>
+                </div>
+                <span class="t-dates">MAR 2023 — OCT 2024</span>
+              </div>
+              <ul>
+                <li>
+                  Handled 1,100+ tickets in 7 months as the team's first support
+                  analyst.
+                </li>
+                <li>
+                  Supported key accounts such as Raízen, Tereos, and Coplacana.
+                </li>
+                <li>
+                  Top ticket closer in the technology area for 6 consecutive
+                  months.
+                </li>
+                <li>
+                  Owned month-end closing day, supporting the team and managing
+                  open tickets.
+                </li>
+              </ul>
+            </div>
+          </div>
         </div>
-      </article>
+      </section>
 
-      <article class="proj-card">
-        <span class="proj-tag">AI · RAG</span>
-        <h3>Contextly</h3>
-        <p>AI-powered document analysis using a RAG approach: chunking, vector storage, and similarity search, plus a reranking step to refine the context sent to the model.</p>
-        <div class="proj-metrics">
-          <span class="metric">Embeddings + reranking</span>
-          <span class="metric">Dynamic context</span>
+      <section id="projects">
+        <div class="kicker">04 — Projects</div>
+        <h2 class="section-title reveal">
+          Systems that made it off the drawing board.
+        </h2>
+        <div class="proj-grid reveal">
+          <article class="proj-card">
+            <span class="proj-tag">Management · SaaS</span>
+            <h3>AcadeSystem</h3>
+            <p>
+              Gym management system built to solve real customer pain points: a
+              wide range of forms and UI/UX flows designed around day-to-day
+              operations.
+            </p>
+            <div class="proj-metrics">
+              <span class="metric">500+ registered gyms</span>
+              <span class="metric">100+ concurrent users</span>
+            </div>
+          </article>
+
+          <article class="proj-card">
+            <span class="proj-tag">Sales · PDF automation</span>
+            <h3>G-Offer</h3>
+            <p>
+              Platform for generating standardized sales PDFs, built to speed up
+              customer negotiations — with stockroom control and work order
+              status tracking.
+            </p>
+            <div class="proj-metrics">
+              <span class="metric">Stockroom control</span>
+              <span class="metric">End-to-end negotiation</span>
+            </div>
+          </article>
+
+          <article class="proj-card">
+            <span class="proj-tag">AI · RAG</span>
+            <h3>Contextly</h3>
+            <p>
+              AI-powered document analysis using a RAG approach: chunking,
+              vector storage, and similarity search, plus a reranking step to
+              refine the context sent to the model.
+            </p>
+            <div class="proj-metrics">
+              <span class="metric">Embeddings + reranking</span>
+              <span class="metric">Dynamic context</span>
+            </div>
+          </article>
         </div>
-      </article>
+      </section>
 
-    </div>
-  </section>
-
-  <section id="education">
-    <div class="kicker">05 — Education &amp; certifications</div>
-    <h2 class="section-title reveal">Always learning, in and out of the classroom.</h2>
-    <div class="edu-list reveal">
-      <div class="edu-row">
-        <div><div class="edu-title">Bachelor's in Software Engineering</div><div class="edu-org">Estácio · Remote</div></div>
-        <div class="edu-period">2024 — 2028 (expected)</div>
-      </div>
-      <div class="edu-row">
-        <div><div class="edu-title">Industrial Automation Technician</div><div class="edu-org">Federal Institute of São Paulo (IFSP) · Sertãozinho, SP</div></div>
-        <div class="edu-period">2018 — 2021</div>
-      </div>
-      <div class="edu-row">
-        <div><div class="edu-title">Professional Course</div><div class="edu-org">MBM University · Sertãozinho, SP</div></div>
-        <div class="edu-period">2023 — 2025</div>
-      </div>
-      <div class="edu-row">
-        <div><div class="edu-title">Oracle certifications (Professional AI, Foundations, and more)</div><div class="edu-org">Oracle · Remote</div></div>
-        <div class="edu-period">2024 — ongoing</div>
-      </div>
-      <div class="edu-row">
-        <div><div class="edu-title">Various development courses and certifications</div><div class="edu-org">Remote</div></div>
-        <div class="edu-period">2022 — ongoing</div>
-      </div>
-    </div>
-  </section>
-
-  <section id="roles">
-    <div class="kicker">06 — Career breakdown</div>
-    <h2 class="section-title reveal">Where the months went, role by role.</h2>
-    <div class="roles-chart reveal">
-      <div class="roles-head">
-        <h3>Time in each role (months)</h3>
-        <span>Most recent first</span>
-      </div>
-      <!-- start/end as YYYY-MM, inclusive; end="present" counts up to the current month -->
-      <div class="roles-list" id="roles-list">
-        <div class="role-bar current" tabindex="0" data-start="2026-09" data-end="present">
-          <div class="role-name">Process &amp; Technology Manager<span class="role-org">MTS</span></div>
-          <div class="role-track"><div class="role-fill"></div><span class="role-value"></span></div>
+      <section id="education">
+        <div class="kicker">05 — Education &amp; certifications</div>
+        <h2 class="section-title reveal">
+          Always learning, in and out of the classroom.
+        </h2>
+        <div class="edu-list reveal">
+          <div class="edu-row">
+            <div>
+              <div class="edu-title">Bachelor's in Software Engineering</div>
+              <div class="edu-org">Estácio · Remote</div>
+            </div>
+            <div class="edu-period">2024 — 2028 (expected)</div>
+          </div>
+          <div class="edu-row">
+            <div>
+              <div class="edu-title">Industrial Automation Technician</div>
+              <div class="edu-org">
+                Federal Institute of São Paulo (IFSP) · Sertãozinho, SP
+              </div>
+            </div>
+            <div class="edu-period">2018 — 2021</div>
+          </div>
+          <div class="edu-row">
+            <div>
+              <div class="edu-title">Professional Course</div>
+              <div class="edu-org">MBM University · Sertãozinho, SP</div>
+            </div>
+            <div class="edu-period">2023 — 2025</div>
+          </div>
+          <div class="edu-row">
+            <div>
+              <div class="edu-title">
+                Oracle certifications (Professional AI, Foundations, and more)
+              </div>
+              <div class="edu-org">Oracle · Remote</div>
+            </div>
+            <div class="edu-period">2024 — ongoing</div>
+          </div>
+          <div class="edu-row">
+            <div>
+              <div class="edu-title">
+                Various development courses and certifications
+              </div>
+              <div class="edu-org">Remote</div>
+            </div>
+            <div class="edu-period">2022 — ongoing</div>
+          </div>
         </div>
-        <div class="role-bar" tabindex="0" data-start="2025-09" data-end="2026-08">
-          <div class="role-name">Solutions &amp; New Business Lead<span class="role-org">Statum Tecnologia</span></div>
-          <div class="role-track"><div class="role-fill"></div><span class="role-value"></span></div>
-        </div>
-        <div class="role-bar" tabindex="0" data-start="2024-10" data-end="2025-09">
-          <div class="role-name">Project Manager<span class="role-org">Statum Tecnologia</span></div>
-          <div class="role-track"><div class="role-fill"></div><span class="role-value"></span></div>
-        </div>
-        <div class="role-bar" tabindex="0" data-start="2023-10" data-end="2024-10">
-          <div class="role-name">Front End Developer<span class="role-org">Statum Tecnologia</span></div>
-          <div class="role-track"><div class="role-fill"></div><span class="role-value"></span></div>
-        </div>
-        <div class="role-bar" tabindex="0" data-start="2023-10" data-end="2024-01">
-          <div class="role-name">Senior Technology Consultant<span class="role-org">Senior Noroeste Paulista</span></div>
-          <div class="role-track"><div class="role-fill"></div><span class="role-value"></span></div>
-        </div>
-        <div class="role-bar" tabindex="0" data-start="2023-03" data-end="2024-10">
-          <div class="role-name">Technology Support Analyst<span class="role-org">Senior Noroeste Paulista</span></div>
-          <div class="role-track"><div class="role-fill"></div><span class="role-value"></span></div>
-        </div>
-      </div>
-      <div class="roles-tip" id="roles-tip" role="tooltip"></div>
-    </div>
-  </section>
+      </section>
 
-  <section id="contact">
-    <div class="contact-panel reveal">
-      <div>
-        <h2>Ready to get the next solution off the ground?</h2>
-        <p class="sub">Open to conversations about full stack development, cloud solution architecture, or applied AI projects.</p>
-      </div>
-      <div class="contact-actions">
-        <a class="btn btn-primary" href="mailto:guilhermefarias210303@gmail.com">guilhermefarias210303@gmail.com</a>
-        <a class="btn btn-ghost" href="https://www.linkedin.com/in/guilhermefarias21031" target="_blank" rel="noopener">linkedin.com/in/guilhermefarias21031</a>
-        <a class="btn btn-ghost" href="tel:+5516988447335">+55 (16) 98844-7335</a>
-      </div>
-    </div>
-  </section>
+      <section id="roles">
+        <div class="kicker">06 — Career breakdown</div>
+        <h2 class="section-title reveal">
+          Where the months went, role by role.
+        </h2>
+        <div class="roles-chart reveal">
+          <div class="roles-head">
+            <h3>Time in each role (months)</h3>
+            <span>Most recent first</span>
+          </div>
+          <!-- start/end as YYYY-MM, inclusive; end="present" counts up to the current month -->
+          <div class="roles-list" id="roles-list">
+            <div
+              class="role-bar current"
+              tabindex="0"
+              data-start="2026-09"
+              data-end="present"
+            >
+              <div class="role-name">
+                Process &amp; Technology Manager<span class="role-org"
+                  >MTS</span
+                >
+              </div>
+              <div class="role-track">
+                <div class="role-fill"></div>
+                <span class="role-value"></span>
+              </div>
+            </div>
+            <div
+              class="role-bar"
+              tabindex="0"
+              data-start="2025-09"
+              data-end="2026-08"
+            >
+              <div class="role-name">
+                Solutions &amp; New Business Lead<span class="role-org"
+                  >Statum Tecnologia</span
+                >
+              </div>
+              <div class="role-track">
+                <div class="role-fill"></div>
+                <span class="role-value"></span>
+              </div>
+            </div>
+            <div
+              class="role-bar"
+              tabindex="0"
+              data-start="2024-10"
+              data-end="2025-09"
+            >
+              <div class="role-name">
+                Project Manager<span class="role-org">Statum Tecnologia</span>
+              </div>
+              <div class="role-track">
+                <div class="role-fill"></div>
+                <span class="role-value"></span>
+              </div>
+            </div>
+            <div
+              class="role-bar"
+              tabindex="0"
+              data-start="2023-10"
+              data-end="2024-10"
+            >
+              <div class="role-name">
+                Front End Developer<span class="role-org"
+                  >Statum Tecnologia</span
+                >
+              </div>
+              <div class="role-track">
+                <div class="role-fill"></div>
+                <span class="role-value"></span>
+              </div>
+            </div>
+            <div
+              class="role-bar"
+              tabindex="0"
+              data-start="2023-10"
+              data-end="2024-01"
+            >
+              <div class="role-name">
+                Senior Technology Consultant<span class="role-org"
+                  >Senior Noroeste Paulista</span
+                >
+              </div>
+              <div class="role-track">
+                <div class="role-fill"></div>
+                <span class="role-value"></span>
+              </div>
+            </div>
+            <div
+              class="role-bar"
+              tabindex="0"
+              data-start="2023-03"
+              data-end="2024-10"
+            >
+              <div class="role-name">
+                Technology Support Analyst<span class="role-org"
+                  >Senior Noroeste Paulista</span
+                >
+              </div>
+              <div class="role-track">
+                <div class="role-fill"></div>
+                <span class="role-value"></span>
+              </div>
+            </div>
+          </div>
+          <div class="roles-tip" id="roles-tip" role="tooltip"></div>
+        </div>
+      </section>
 
-  <footer>
-    <span>© 2026 GUILHERME FARIAS</span>
-    <span>SERTÃOZINHO, SP — BRAZIL</span>
-  </footer>
+      <section id="contact">
+        <div class="contact-panel reveal">
+          <div>
+            <h2>Ready to get the next solution off the ground?</h2>
+            <p class="sub">
+              Open to conversations about full stack development, cloud solution
+              architecture, or applied AI projects.
+            </p>
+          </div>
+          <div class="contact-actions">
+            <a
+              class="btn btn-primary"
+              href="mailto:guilhermefarias210303@gmail.com"
+              >guilhermefarias210303@gmail.com</a
+            >
+            <a
+              class="btn btn-ghost"
+              href="https://www.linkedin.com/in/guilhermefarias21031"
+              target="_blank"
+              rel="noopener"
+              >linkedin.com/in/guilhermefarias21031</a
+            >
+            <a class="btn btn-ghost" href="tel:+5516988447335"
+              >+55 (16) 98844-7335</a
+            >
+          </div>
+        </div>
+      </section>
 
-</main>
+      <footer>
+        <span>© 2026 GUILHERME FARIAS</span>
+        <span>SERTÃOZINHO, SP — BRAZIL</span>
+      </footer>
+    </main>
 
-<script>
-  (function () {
-    var links = Array.prototype.slice.call(document.querySelectorAll('#nav-links a'));
-    var sections = links.map(function (l) { return document.querySelector(l.getAttribute('href')); }).filter(Boolean);
+    <script>
+      (function () {
+        var links = Array.prototype.slice.call(
+          document.querySelectorAll('#nav-links a'),
+        );
+        var sections = links
+          .map(function (l) {
+            return document.querySelector(l.getAttribute('href'));
+          })
+          .filter(Boolean);
 
-    if ('IntersectionObserver' in window) {
-      var navObserver = new IntersectionObserver(function (entries) {
-        entries.forEach(function (entry) {
-          var id = '#' + entry.target.id;
-          var link = links.find(function (l) { return l.getAttribute('href') === id; });
-          if (!link) return;
-          if (entry.isIntersecting) {
-            links.forEach(function (l) { l.classList.remove('active'); });
-            link.classList.add('active');
-          }
+        if ('IntersectionObserver' in window) {
+          var navObserver = new IntersectionObserver(
+            function (entries) {
+              entries.forEach(function (entry) {
+                var id = '#' + entry.target.id;
+                var link = links.find(function (l) {
+                  return l.getAttribute('href') === id;
+                });
+                if (!link) return;
+                if (entry.isIntersecting) {
+                  links.forEach(function (l) {
+                    l.classList.remove('active');
+                  });
+                  link.classList.add('active');
+                }
+              });
+            },
+            { rootMargin: '-45% 0px -45% 0px', threshold: 0 },
+          );
+          sections.forEach(function (s) {
+            navObserver.observe(s);
+          });
+
+          var revealObserver = new IntersectionObserver(
+            function (entries) {
+              entries.forEach(function (entry) {
+                if (entry.isIntersecting) {
+                  entry.target.classList.add('is-visible');
+                  revealObserver.unobserve(entry.target);
+                }
+              });
+            },
+            { threshold: 0.12 },
+          );
+          document.querySelectorAll('.reveal').forEach(function (el) {
+            revealObserver.observe(el);
+          });
+        } else {
+          document.querySelectorAll('.reveal').forEach(function (el) {
+            el.classList.add('is-visible');
+          });
+        }
+      })();
+
+      (function () {
+        var MONTHS = [
+          'JAN',
+          'FEB',
+          'MAR',
+          'APR',
+          'MAY',
+          'JUN',
+          'JUL',
+          'AUG',
+          'SEP',
+          'OCT',
+          'NOV',
+          'DEC',
+        ];
+        var list = document.getElementById('roles-list');
+        var tip = document.getElementById('roles-tip');
+        if (!list) return;
+        var chart = list.parentElement;
+        var rows = Array.prototype.slice.call(
+          list.querySelectorAll('.role-bar'),
+        );
+        var now = new Date();
+
+        function parse(v) {
+          if (v === 'present')
+            return { y: now.getFullYear(), m: now.getMonth() };
+          var p = v.split('-');
+          return { y: +p[0], m: +p[1] - 1 };
+        }
+        function label(d) {
+          return MONTHS[d.m] + ' ' + d.y;
+        }
+
+        var data = rows.map(function (row) {
+          var s = parse(row.dataset.start);
+          var e = parse(row.dataset.end);
+          var months = e.y * 12 + e.m - (s.y * 12 + s.m) + 1;
+          var period =
+            label(s) +
+            ' — ' +
+            (row.dataset.end === 'present' ? 'PRESENT' : label(e));
+          row.querySelector('.role-value').textContent =
+            months + (months === 1 ? ' mo' : ' mos');
+          row.setAttribute(
+            'aria-label',
+            row.querySelector('.role-name').textContent.replace(/\s+/g, ' ') +
+              ': ' +
+              months +
+              ' months, ' +
+              period,
+          );
+          return { row: row, months: months, period: period };
         });
-      }, { rootMargin: '-45% 0px -45% 0px', threshold: 0 });
-      sections.forEach(function (s) { navObserver.observe(s); });
+        var max = Math.max.apply(
+          null,
+          data.map(function (d) {
+            return d.months;
+          }),
+        );
 
-      var revealObserver = new IntersectionObserver(function (entries) {
-        entries.forEach(function (entry) {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('is-visible');
-            revealObserver.unobserve(entry.target);
-          }
+        function draw() {
+          data.forEach(function (d) {
+            d.row.querySelector('.role-fill').style.width =
+              'calc((100% - 4.5rem) * ' + d.months / max + ')';
+          });
+        }
+        if ('IntersectionObserver' in window) {
+          var obs = new IntersectionObserver(
+            function (entries) {
+              if (entries[0].isIntersecting) {
+                draw();
+                obs.disconnect();
+              }
+            },
+            { threshold: 0.2 },
+          );
+          obs.observe(chart);
+        } else {
+          draw();
+        }
+
+        function show(d) {
+          var name = d.row.querySelector('.role-name').firstChild.textContent;
+          var org = d.row.querySelector('.role-org').textContent;
+          tip.innerHTML =
+            '<strong></strong> · <span></span><br><span class="mono"></span>';
+          tip.querySelector('strong').textContent = name;
+          tip.querySelector('span').textContent = org;
+          tip.querySelector('.mono').textContent =
+            d.period + ' · ' + d.months + ' months';
+          var fill = d.row.querySelector('.role-fill').getBoundingClientRect();
+          var box = chart.getBoundingClientRect();
+          var left = Math.min(
+            fill.right - box.left + 12,
+            box.width - tip.offsetWidth - 8,
+          );
+          tip.style.left = Math.max(8, left) + 'px';
+          tip.style.top =
+            d.row.getBoundingClientRect().top -
+            box.top -
+            tip.offsetHeight -
+            4 +
+            'px';
+          tip.classList.add('show');
+        }
+        function hide() {
+          tip.classList.remove('show');
+        }
+
+        data.forEach(function (d) {
+          d.row.addEventListener('mouseenter', function () {
+            show(d);
+          });
+          d.row.addEventListener('focus', function () {
+            show(d);
+          });
+          d.row.addEventListener('mouseleave', hide);
+          d.row.addEventListener('blur', hide);
         });
-      }, { threshold: 0.12 });
-      document.querySelectorAll('.reveal').forEach(function (el) { revealObserver.observe(el); });
-    } else {
-      document.querySelectorAll('.reveal').forEach(function (el) { el.classList.add('is-visible'); });
-    }
-  })();
-
-  (function () {
-    var MONTHS = ['JAN','FEB','MAR','APR','MAY','JUN','JUL','AUG','SEP','OCT','NOV','DEC'];
-    var list = document.getElementById('roles-list');
-    var tip = document.getElementById('roles-tip');
-    if (!list) return;
-    var chart = list.parentElement;
-    var rows = Array.prototype.slice.call(list.querySelectorAll('.role-bar'));
-    var now = new Date();
-
-    function parse(v) {
-      if (v === 'present') return { y: now.getFullYear(), m: now.getMonth() };
-      var p = v.split('-');
-      return { y: +p[0], m: +p[1] - 1 };
-    }
-    function label(d) { return MONTHS[d.m] + ' ' + d.y; }
-
-    var data = rows.map(function (row) {
-      var s = parse(row.dataset.start);
-      var e = parse(row.dataset.end);
-      var months = (e.y * 12 + e.m) - (s.y * 12 + s.m) + 1;
-      var period = label(s) + ' — ' + (row.dataset.end === 'present' ? 'PRESENT' : label(e));
-      row.querySelector('.role-value').textContent = months + (months === 1 ? ' mo' : ' mos');
-      row.setAttribute('aria-label', row.querySelector('.role-name').textContent.replace(/\s+/g, ' ') + ': ' + months + ' months, ' + period);
-      return { row: row, months: months, period: period };
-    });
-    var max = Math.max.apply(null, data.map(function (d) { return d.months; }));
-
-    function draw() {
-      data.forEach(function (d) {
-        d.row.querySelector('.role-fill').style.width = 'calc((100% - 4.5rem) * ' + (d.months / max) + ')';
-      });
-    }
-    if ('IntersectionObserver' in window) {
-      var obs = new IntersectionObserver(function (entries) {
-        if (entries[0].isIntersecting) { draw(); obs.disconnect(); }
-      }, { threshold: 0.2 });
-      obs.observe(chart);
-    } else {
-      draw();
-    }
-
-    function show(d) {
-      var name = d.row.querySelector('.role-name').firstChild.textContent;
-      var org = d.row.querySelector('.role-org').textContent;
-      tip.innerHTML = '<strong></strong> · <span></span><br><span class="mono"></span>';
-      tip.querySelector('strong').textContent = name;
-      tip.querySelector('span').textContent = org;
-      tip.querySelector('.mono').textContent = d.period + ' · ' + d.months + ' months';
-      var fill = d.row.querySelector('.role-fill').getBoundingClientRect();
-      var box = chart.getBoundingClientRect();
-      var left = Math.min(fill.right - box.left + 12, box.width - tip.offsetWidth - 8);
-      tip.style.left = Math.max(8, left) + 'px';
-      tip.style.top = (d.row.getBoundingClientRect().top - box.top - tip.offsetHeight - 4) + 'px';
-      tip.classList.add('show');
-    }
-    function hide() { tip.classList.remove('show'); }
-
-    data.forEach(function (d) {
-      d.row.addEventListener('mouseenter', function () { show(d); });
-      d.row.addEventListener('focus', function () { show(d); });
-      d.row.addEventListener('mouseleave', hide);
-      d.row.addEventListener('blur', hide);
-    });
-  })();
-</script>
-
-</body>
+      })();
+    </script>
+  </body>
 </html>
